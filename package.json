@@ -1,0 +1,15 @@
+{
+  "name": "xiaocuo.wang",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.2",
+    "vuepress": "^1.6.0"
+  }
+}
