@@ -152,9 +152,9 @@ import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 dayjs.extend(customParseFormat)
 
-dayjs('2020-07-10T16:28:51z')
+dayjs('2020-07-10T16:28:51z', 'YYYY-MM-DDTHH:mm:ss.000ZZ')
 
-dayjs('2020-07-10T00:28:51+08:00')
+dayjs('2020-07-10T00:28:51+08:00', 'YYYY-MM-DDTHH:mm:ss.000ZZ')
 ```
 
 - 格式化成 ISO-8601
