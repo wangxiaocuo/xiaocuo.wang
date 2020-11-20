@@ -2,8 +2,8 @@
 title: MacOS 安装 nginx-1.18.0
 date: 2020/10/12 21:10:35
 tags:
-  - 前端
-  - 微信小程序
+  - nginx
+  - macOS
 ---
 
 目前网上很多的教程都是通过 [`Homebrew`](https://brew.sh/) 去安装，我试过之后，发现安装的 nginx 版本不是最新稳定版。
