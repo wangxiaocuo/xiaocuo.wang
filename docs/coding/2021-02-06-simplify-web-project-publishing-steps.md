@@ -137,7 +137,7 @@ git push -u --force origin ${branch}
 
 只需要终端 cd 到项目根目录，敲 `sh <发版脚本文件名>`。比如我要发个 `uat` 环境，则敲 `sh deploy.uat.sh` 。
 
-> 注意：windows 电脑的 cmd 终端不能用 sh 命令，需要用 powershell 或 gitbash
+> 注意：windows 电脑的 cmd 终端不能用 sh 命令，需要用 powershell 或 git bash
 
 ### 服务器端拉取最新代码
 
