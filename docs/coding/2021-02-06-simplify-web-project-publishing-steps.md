@@ -61,7 +61,7 @@ tags:
 ```shell
 # deploy.dev.sh
 # 分支名
-branch="uat"
+branch="dev"
 # 部署的仓库地址（http）
 http_repository="http://xxx/oa-admin-web-dist.git"
 # 部署的仓库地址（ssh）
@@ -94,7 +94,7 @@ git remote add origin ${ssh_repository}
 git push -u --force origin ${branch}
 ```
 
-`uat` 环境的脚本与 `dev` 环境除了分支名其余没有差别
+`uat` 环境的脚本与 `dev` 环境除了分支名其余没有差别。
 
 `prod` 环境稍微有点差别，写入 `dist` 的 `pull.sh` 脚本中不需要 `git checkout master`，因为初始化仓库时，默认就在 `master` 分支
 
