@@ -1,5 +1,14 @@
 module.exports = {
   port: 1024,
+  head: [
+    [
+      'link',
+      {
+        rel: 'icon',
+        href: '/favicon.ico'
+      }
+    ]
+  ],
   locales: {
     '/': {
       lang: 'zh-CN',
