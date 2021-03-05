@@ -1,0 +1,98 @@
+---
+title: VSCode 代码片段配置
+date: 2018/04/15
+tags:
+  - 前端
+  - 代码编辑器
+---
+
+VSCode 中代码片段，是一段预设好的代码，只需要通过简短的命令，就可以生成一大段代码。通过代码片段，我们可以把一些常用的代码预设好，省去一定的工作量
+
+## 配置方式
+
+按 `F1` 或者 `ctrl + shift + p` （windows）、`command + shift + p` （mac）打开命令面板。输入 `片段` 或 `Snippet` 即可找到配置入口。
+
+![snippets-1](./images/2018-04-15-vscode-snippets/snippets-1.png)
+
+回车然后选择需要配置的语言进行配置。
+
+![snippets-2](./images/2018-04-15-vscode-snippets/snippets-2.png)
+
+配置的语法请参考官方文档：[Creating your own snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets)
+
+下面我贴出我的配置项，仅供参考。
+
+## .html 配置
+
+```json
+{
+  "Init PC html": {
+    // 初始化PC项目文件
+    "prefix": "init-pc",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"${1:zh-cmn-Hans}\">",
+      "<head>",
+        "\t<meta charset=\"UTF-8\">",
+        "\t<meta name=\"viewport\" content=\"width=${2:device-width}, initial-scale=${3:1.0}\">",
+        "\t<meta http-equiv=\"X-UA-Compatible\" content=\"${4:ie=edge}\">",
+        "\t<title>${5:标题}</title>",
+      "</head>",
+      "<body>",
+        "$6",
+      "</body>",
+      "</html>"
+    ],
+    "description": "Init PC html"
+  },
+  "Init mobile html": {
+    // 初始化移动端项目文件
+    "prefix": "init-mobile",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"${1:zh-cmn-Hans}\">",
+      "<head>",
+        "\t<meta charset=\"UTF-8\">",
+        "\t<meta name=\"viewport\" content=\"width=${2:device-width}, initial-scale=${3:1.0}, user-scalable=${4:no}, minimum-scale=${5:1.0}, maximum-scale=${6:1.0}\">",
+        "\t<meta http-equiv=\"X-UA-Compatible\" content=\"${7:ie=edge}\">",
+        "\t<title>${8:标题}</title>",
+      "</head>",
+      "<body>",
+        "$9",
+      "</body>",
+      "</html>"
+    ],
+    "description": "Init mobile html"
+  }
+}
+```
+
+## .vue 配置
+
+```json
+{
+  "Init vue file": {
+    // 文件初始化
+    "prefix": "init-vue",
+    "body": [
+      "<template>",
+        "\t<div class=\"$1\">",
+        "\t</div>",
+      "</template>\n",
+      "<script>",
+      "export default {",
+        "\tname: '$2',",
+      "}",
+      "</script>\n",
+      "<style scoped lang=\"$3\">",
+      "</style>"
+    ],
+    "description": "Log output to console"
+  },
+  "Print to console": {
+    "prefix": "log",
+    "body": ["console.log('$1')$2"],
+    "description": "Log output to console"
+  }
+}
+```

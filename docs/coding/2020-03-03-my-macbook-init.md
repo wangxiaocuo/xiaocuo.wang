@@ -1,118 +1,9 @@
 ---
-title: 前端工作者的 MacBook Pro 初始化工作
+title: MacBook 前端向配置和工具安装
 date: 2020/03/03 23:42:03
 tags:
-  - 前端
-  - MacBookPro
+  - mac
 ---
-
-## 安装 Homebrew
-
-Homebrew 是什么，官网的解释很到位：
-
-> - [Homebrew](https://brew.sh/index_zh-cn) 是 macOS（或 Linux）缺失的软件包的管理器。
-> - 使用 Homebrew 安装 Apple（或您的 Linux 系统）没有预装但 [你需要的东西](https://formulae.brew.sh/formula/)。
-
-<!-- more -->
-
-### 安装
-
-```bash
-# 复制以下命令到终端执行
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-```
-
-### 使用
-
-#### 安装应用程序
-
-`brew install` 命令一般用来安装非 GUI（用户图形界面）类型的程序，比如 git、yarn、mysql 等。
-
-安装的时候，如果出现 `Updating Homebrew...`，说明 Homebrew 正在尝试更新。但是尴尬的是，由于天朝特色，这一步是连不上 Homebrew 官方的服务器的（虽然俺也不知道为啥能安装 Homebrew 却不能更新...）。这时候可以通过 `ctrl + c` 去打断更新 Homebrew，随后稍等一两秒，就会继续执行安装命令了。
-
-我有试过更换各种国内的 Homebrew 镜像源，根本没用，后来无意中发现一种方式可以更新 Homebrew，这个后面讲。
-
-```bash
-brew install <程序名>
-# 例如
-brew install git
-```
-
-#### 查看已安装的程序列表
-
-```bash
-brew list
-```
-
-#### 卸载应用程序
-
-```bash
-brew uninstall <程序名>
-# 例如
-brew uninstall git
-```
-
-#### 显示程序信息
-
-这一步可以当作是搜索，如果没有对应的程序可安装则会报错 `Error: No available formula with the name "程序名"`。
-
-```bash
-brew info <程序名>
-```
-
-### Homebrew Cask
-
-**Homebrew Cask** 是 Homebrew 的扩展。使用它可以安装 GUI 程序，不用再去各个软件的官网或者 App Store 上搜索下载。一行命令搞定，逼格满满。
-
-#### 安装软件
-
-老规矩，出现 `Updating Homebrew...`，敲 `ctrl + c`。
-
-```bash
-brew cask install <程序名>
-# 例如
-brew cask info qq
-```
-
-#### 查看已安装的程序列表
-
-```bash
-brew cask list
-```
-
-#### 卸载程序
-
-```bash
-brew cask uninstall <程序名>
-# 例如
-brew cask uninstall qq
-```
-
-#### 显示程序信息
-
-和 `brew info` 一样，这一步可以当作是搜索，如果没有对应的程序可安装则会报错 `Error: Cask '程序名' is unavailable: No Cask with this name exists.`。
-
-```bash
-brew cask info <程序名>
-```
-
-## Cakebrew
-
-Cakebrew 是一个 GUI 工具，可以用来管理用 Homebrew Cask 安装的程序，并且它可以帮我们 **更新 Homebrew**。
-
-这就是我之前说的更新 Homebrew 的方法。
-
-### 安装 Cakebrew
-
-`brew cask install cakebrew`
-
-### 使用
-
-如图：
-
-![cake-brew](./images/2020-03-03-my-macbook-init/cake-brew.jpg)
-
-点击左上角的 **更新 Homebrew** 就可以更新 Homebrew 了。耐心等待，安装完成会有提示。
 
 ## 修改计算机名和主机名
 
@@ -137,35 +28,19 @@ sudo scutil --set HostName <名字>
 sudo scutil --set HostName wxc_mac
 ```
 
-## 最新版 Git 替代自带的 Git
+## 安装最新的 Git 替代自带的 Git
 
-细心的小伙伴可能会发现，mac 自带 git。但是自带的 git 版本不高，而且安装的目录都不知道在哪，心里不踏实，所以我选择手动安装最新的 git。
+mac 自带 git。但是自带的 git 版本不高，所以我选择手动安装最新的 git。
 
-安装：
+[官网下载](https://git-scm.com/)并安装
 
-```bash
-brew install git
-```
+<!-- sudo ln -sf /usr/bin/git /usr/local/bin/git -->
 
-安装完之后 `git --version` 查看一下，诶？怎么版本没有变化。别急，这是因为，当前的全局 git 命令还被老版本的 git 霸占着，我们需要通过软链接命令去更新下全局 git 的命令读取位置。
-
-```bash
-sudo ln -sf /usr/bin/git /usr/local/bin/git
-```
-
-这时候 `git --version` 查看版本就是最新安装的版本了。
-
-## python3 替代自带的 python2
+## 安装最新的 Python 替代自带的 Python2
 
 跟 git 一样，mac 有自带的旧版本 python。如果不安装 python3，开发过程中可能会遇到问题，特别是安装一些依赖的时候。
 
-安装 python3 和 安装 git 如出一辙：
-
-```bash
-brew install python
-
-sudo ln -sf /usr/bin/python /usr/local/bin/python
-```
+[官网下载](https://www.python.org/downloads/mac-osx/)并安装
 
 ## Oh My Zsh
 
@@ -237,35 +112,13 @@ git clone https://github.com/dracula/zsh.git dracula
 
 ## iTerm2
 
-[iterm2](https://iterm2.com/) 是 Mac 上最好用的第三方终端工具，比自带的强很多。
+[iterm2](https://iterm2.com/) 是 Mac 上非常好用的第三方终端工具之一
 
-安装：
-
-```bash
-brew cask install iterm2
-```
-
-## Sourcetree
-
-[Sourcetree](https://www.sourcetreeapp.com/) 是全平台免费的 git GUI 工具。唉，说起来光看颜，我是更喜欢 Gitkraken 的，可惜最新版本开始收费了。
-
-安装：
-
-```bash
-brew cask install sourcetree
-```
+[官方下载](https://iterm2.com/)并安装
 
 ## NodeJs
 
-推荐直接去 [官网](https://nodejs.org/zh-cn/) 下载 **长期支持版** 的安装包，不要搞幺蛾子的 NVM 去管理 node 版本，亲身尝试，真的很坑，坑到哭的那种。如果非要想去管理 node 版本，可以选择安装一个全局的 npm 包：[`n`](https://www.npmjs.com/package/n)。
-
-## VSCode
-
-```bash
-brew cask install visual-studio-code
-```
-
-VSCode 的详细配置，请参考我另一篇文章 [VSCode 的插件与配置](https://www.jianshu.com/p/284fa273e20f)
+[官网下载](https://nodejs.org/zh-cn/)并安装
 
 ## mirror-config-china
 
@@ -279,7 +132,3 @@ npm config list
 # 查看环境变量
 source ~/.zshrc && env
 ```
-
----
-
-待补充...

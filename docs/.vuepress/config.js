@@ -28,11 +28,11 @@ module.exports = {
         '2021-02-06-simplify-web-project-publishing-steps',
         '2021-02-05-vue-render-function-and-jsx',
         '2020-10-12-macos-install-nginx-1.18.0',
-        '2020-07-25-miniapp-request-encapsulate',
         '2020-07-10-datetime-format',
         '2020-03-04-pscc-extract-assets',
         '2020-03-03-my-macbook-init',
         '2020-03-02-newline-problem',
+        '2018-04-15-vscode-snippets',
         '2018-04-14-vscode-settings',
       ],
 

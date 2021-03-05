@@ -1,21 +1,15 @@
 ---
-title: 前端工作者的 vscode 插件列表、设置清单和代码片段
+title: VSCode 插件和配置文件
 date: 2018/04/14 21:23:56
 tags:
   - 前端
   - 代码编辑器
 ---
 
-整理记录了一些我在前端工作中所用到的插件，以及配置清单、和代码片段的配置方式。
-
-<!-- more -->
-
-## 插件
+## 常用插件
 
 | 插件名称 | 功能描述 |
 | :--- | :--- |
-| Auto Close Tag | 自动添加 HTML / XML 闭合标签 |
-| Auto Rename Tag | 自动重命名配对的 HTML / XML 标签 |
 | Beautify | 格式化 html、js、json、css、scss 等文件 |
 | Bracket Pair Colorizer | 每一对括号都是一种颜色 |
 | Chinese (Simplified) Language Pack for Visual Studio Code | 中文（简体）语言包扩展 |
@@ -49,10 +43,12 @@ tags:
 | Vetur | 目前最优秀的 Vue 支持工具 |
 | vscode-icons | 文件图标 |
 
-## vscode 配置文件
+## 配置文件 settings.json
 
 ```js
+// vscode 版本：1.54.1
 {
+  "workbench.colorTheme": "Atom One Dark",
   "workbench.iconTheme": "vscode-icons", // 文件图标主题设置
   "editor.fontLigatures": true, // 启用字体连字
   "editor.formatOnSave": false, // 保存时格式化
@@ -60,12 +56,13 @@ tags:
   "editor.renderIndentGuides": false, // 显示缩进参考线
   "editor.fontSize": 14, // 编辑区域字体大小
   "terminal.integrated.fontSize": 14, // 终端字体大小
+  "debug.console.fontSize": 14, // 控制调试控制台中的字体大小
   "editor.lineHeight": 28, // 行高
   "editor.tabSize": 2, // 一个制表符（缩进）为两个空格
   "editor.lineNumbers": "on", // 显示绝对行数
   "editor.rulers": [
     // 在120个字符的位置显示标尺
-    120
+    80
   ],
   "editor.wordWrap": "on", // 控制本文在可视区域处换行
   "editor.codeActionsOnSave": {
@@ -73,6 +70,7 @@ tags:
     "source.fixAll.eslint": true
   },
   "extensions.ignoreRecommendations": true, // 不显示扩展建议通知
+
   /* ==================== 搜索 配置 ==================== */
   "search.exclude": {
     // 全局搜索时不包含
@@ -88,6 +86,7 @@ tags:
     "**/.idea": true,
     "**/yarn.lock": true
   },
+
   /* ==================== 文件相关 配置 ==================== */
   "files.trimTrailingWhitespace": true, // 文件保存时删除每一行末尾多余的空格
   "files.insertFinalNewline": true, // 文件保存时在文件末尾插入一个新行
@@ -100,6 +99,7 @@ tags:
     "*.cjson": "jsonc",
     "*.wxs": "javascript"
   },
+
   /* ==================== emmet 配置 ==================== */
   "emmet.syntaxProfiles": {
     "vue-html": "html",
@@ -111,185 +111,97 @@ tags:
     "javascript": "javascriptreact",
     "wxml": "html"
   },
+
   /* ==================== prettier 配置 ==================== */
-  "prettier.semi": false,
+  // 字符串使用单引号
   "prettier.singleQuote": true,
+  // 句尾不添加分号
+  "prettier.semi": false,
+  // 缩进字节数
+  "prettier.tabWidth": 2,
+  // 缩进不使用 tab
+  "prettier.useTabs": false,
+  // 对象中打印空格 默认 true
+  // true: { foo: bar }
+  // false: {foo: bar}
+  "prettier.bracketSpacing": true,
+  // 箭头函数参数括号 默认 avoid，可选 avoid| always
+  // avoid 能省略括号的时候就省略 例如 x => x
+  // always 总是有括号
+  "prettier.arrowParens": "avoid",
+  // 换行长度，默认80
+  "prettier.printWidth": 80,
+  // 多行 JSX 元素时，将 `>` 放在最后一行的末尾，而不是单独放在下一行
+  // <button
+  //   className="prettier-class"
+  //   id="prettier-id"
+  //   onClick={this.handleClick}>
+  //   Click Here
+  // </button>
+  // 设置为 false 时
+  // <button
+  //   className="prettier-class"
+  //   id="prettier-id"
+  //   onClick={this.handleClick}
+  // >
+  //   Click Here
+  // </button>
+  "prettier.jsxBracketSameLine": true,
+  // jsx 中使用单引号代替双引号
+  "prettier.jsxSingleQuote": true,
+  // 在对象或数组最后一个元素后面不加逗号
+  "prettier.trailingComma": "none",
+  // 每行结尾换行符号设置为 lf
+  "prettier.endOfLine": "lf",
+
   /* ==================== cssrem 配置 ==================== */
-  "cssrem.rootFontSize": 100,
+  "cssrem.rootFontSize": 75,
+
   /* ==================== 格式化规则 配置 ==================== */
-  "vetur.format.defaultFormatter.html": "js-beautify-html",
-  "[vue]": {
+  "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
   // 文件换行符为 LF
   "files.eol": "\n",
   // 因为安装了 Color Highlight，禁用掉自带的颜色修饰器
   "editor.colorDecorators": false,
-  "window.zoomLevel": 0,
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "michelemelluso.code-beautifier"
-  },
+  "window.zoomLevel": 1,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  // 去除修饰器警告
-  "javascript.implicitProjectConfig.experimentalDecorators": true,
-  "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "go.useLanguageServer": true
-}
-```
-
-关于自动保存格式化，考虑到不同的项目，格式化的风格不一致，所以格式化的配置（主要是 prettier 的配置）并没有写死到配置文件中。建议在每个项目的根目录下新建 `.prettierrc` 文件，定义自己的格式化风格。
-
-以下是我常用的配置，仅供参考：
-
-```js
-// .prettierrc
-{
-  "endOfLine": "auto",
-  "printWidth": 120,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": false,
-  "singleQuote": true,
-  "jsxSingleQuote": true,
-  "trailingComma": "none",
-  "bracketSpacing": true,
-  "jsxBracketSameLine": true,
-  "arrowParens": "avoid",
-  "overrides": [
-    {
-      "files": ".prettierrc",
-      "options": { "parser": "json" }
-    }
-  ]
-}
-```
-
-## 自定义代码片段
-
-代码片段，是一段预设好的代码，只需要通过简短的命令，就可以生成一大段代码。通过代码片段，我们可以把一些大段的又老记不住的代码预设好。
-
-比如 html 的初始化代码。那些 `meta` 的配置我一般都记不住，所以最好用代码片段预设好。
-
-### 配置方式
-
-按 `F1` 或者 `ctrl + shift + p` （windows）、`command + shift + p` （mac）打开命令面板。输入 `片段` 或 `Snippet` 即可找到配置入口。
-
-![snippets-1](./images/2018-04-14-vscode-settings/snippets-1.png)
-
-回车然后选择需要配置的语言进行配置。
-
-![snippets-2](./images/2018-04-14-vscode-settings/snippets-2.png)
-
-配置的语法请参考官方文档：[Creating your own snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets)
-
-下面我贴出我的配置项，仅供参考。
-
-### Html
-
-```js
-{
-  "Init PC html": {
-    // 初始化PC项目文件
-    "prefix": "init-pc",
-    "body": [
-      "<!DOCTYPE html>",
-      "<html lang=\"${1:zh-cmn-Hans}\">",
-      "<head>",
-        "\t<meta charset=\"UTF-8\">",
-        "\t<meta name=\"viewport\" content=\"width=${2:device-width}, initial-scale=${3:1.0}\">",
-        "\t<meta http-equiv=\"X-UA-Compatible\" content=\"${4:ie=edge}\">",
-        "\t<title>${5:标题}</title>",
-      "</head>",
-      "<body>",
-        "$6",
-      "</body>",
-      "</html>"
-    ],
-    "description": "Init PC html"
-  },
-  "Init mobile html": {
-    // 初始化移动端项目文件
-    "prefix": "init-mobile",
-    "body": [
-      "<!DOCTYPE html>",
-      "<html lang=\"${1:zh-cmn-Hans}\">",
-      "<head>",
-        "\t<meta charset=\"UTF-8\">",
-        "\t<meta name=\"viewport\" content=\"width=${2:device-width}, initial-scale=${3:1.0}, user-scalable=${4:no}, minimum-scale=${5:1.0}, maximum-scale=${6:1.0}\">",
-        "\t<meta http-equiv=\"X-UA-Compatible\" content=\"${7:ie=edge}\">",
-        "\t<title>${8:标题}</title>",
-      "</head>",
-      "<body>",
-        "$9",
-      "</body>",
-      "</html>"
-    ],
-    "description": "Init mobile html"
-  }
-}
-```
-
-### Vue
-
-```js
-{
-  "Init vue file": {
-    // 文件初始化
-    "prefix": "init-vue",
-    "body": [
-      "<template>",
-        "\t<div class=\"${1:${TM_FILENAME_BASE}}\">$3",
-        "\t</div>",
-      "</template>\n",
-      "<script>",
-      "export default {",
-        "\tname: '$1',",
-        "\tprops: [],",
-        "\tcomponents: {},",
-        "\tdata () {",
-          "\t\treturn {}",
-        "\t},",
-        "\tbeforeRouteEnter (to, from, next) {",
-          "\t\tnext(vm => vm.init())",
-        "\t},",
-        "\tmounted () {",
-          "\t\tthis.\\$nextTick(() => this.init())",
-        "\t},",
-        "\tcomputed: {},",
-        "\tfilters: {},",
-        "\twatch: {",
-          "\t\texample (val, oldVal) {",
-          "\t\t}",
-        "\t},",
-        "\tmethods: {",
-          "\t\tinit () {}",
-        "\t}",
-      "}",
-      "</script>\n",
-      "<style scoped lang=\"${2:scss}\">",
-      ".$1 {}",
-      "</style>"
-    ],
-    "description": "Log output to console"
-  },
-  "Print to console": {
-    "prefix": "log",
-    "body": ["console.log('$1')$2"],
-    "description": "Log output to console"
-  }
+  "go.useLanguageServer": true,
+  "todo-tree.tree.showScanModeButton": false
 }
 ```
