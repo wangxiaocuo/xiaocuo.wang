@@ -66,7 +66,7 @@ source ~/.zshrc
 
 [Dracula](https://draculatheme.com/zsh/) 是我最喜欢的 zsh 主题，优雅简洁好看。当然 Dracula 不光有 zsh 的主题，它能依托的平台非常多，感兴趣的可以去官网查看。
 
-![dracula](./images/2020-03-03-my-macbook-init/dracula.jpg)
+![dracula](./2020-03-03-my-macbook-init/dracula.jpg)
 
 安装第三方主题的方式有两种：
 

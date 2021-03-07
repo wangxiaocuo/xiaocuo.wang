@@ -18,27 +18,27 @@ tags:
 
 1. 首选项 -> 增效工具，勾选【打开生成器】
 
-![打开增效工具面板](./images/2020-03-04-pscc-extract-assets/1.jpg)
+![打开增效工具面板](./2020-03-04-pscc-extract-assets/1.jpg)
 
-![勾选生成器](./images/2020-03-04-pscc-extract-assets/2.jpg)
+![勾选生成器](./2020-03-04-pscc-extract-assets/2.jpg)
 
 2. 文件 -> 生成，勾选【图像资源】
 
-![勾选图像资源](./images/2020-03-04-pscc-extract-assets/3.jpg)
+![勾选图像资源](./2020-03-04-pscc-extract-assets/3.jpg)
 
 3. 修改图层或图层组合的名称，后缀为某一种图片格式的后缀
 
-![修改图层或组合名](./images/2020-03-04-pscc-extract-assets/4.jpg)
+![修改图层或组合名](./2020-03-04-pscc-extract-assets/4.jpg)
 
 在你改完名字的那一瞬间，其实切图工作已经完成了。资源生成器会在当前 PSD 文件所在的目录下，生成一个 psd 文件名拼接上 `-assets` 的资源文件夹。
 
-![资源文件夹](./images/2020-03-04-pscc-extract-assets/5.jpg)
+![资源文件夹](./2020-03-04-pscc-extract-assets/5.jpg)
 
 可以看到，刚刚我们改名的组合和图层，已经生成好了。
 
-![图层测试.png](./images/2020-03-04-pscc-extract-assets/6.jpg)
+![图层测试.png](./2020-03-04-pscc-extract-assets/6.jpg)
 
-![组合测试.jpg](./images/2020-03-04-pscc-extract-assets/7.jpg)
+![组合测试.jpg](./2020-03-04-pscc-extract-assets/7.jpg)
 
 > **注意：** 资源生成器切图，切图很快，但偶尔也会栽跟头。原因出在 UI 设计稿上。如果用于切图的 PSD 稿件图层混乱，模块分割不明朗，就很难用资源生成器进行切图了，最后只能祭出【切片工具】进行切图......所以，首先要学会佛系，其次要学会因地制宜。
 
@@ -48,17 +48,17 @@ tags:
 
 使用英文逗号隔开几个名称即可。如：`图层测试.png,图层测试.jpg,图层测试.jpeg`
 
-![生成多种图片资源](./images/2020-03-04-pscc-extract-assets/8.jpg)
+![生成多种图片资源](./2020-03-04-pscc-extract-assets/8.jpg)
 
-![多种图片资源](./images/2020-03-04-pscc-extract-assets/9.jpg)
+![多种图片资源](./2020-03-04-pscc-extract-assets/9.jpg)
 
 ### 分类保存图片资源
 
 可以通过特殊的命令方式，把同一类型的图片资源划分到相同的字文件夹中，如：`子文件夹名/图层测试.png`
 
-![命名子文件夹](./images/2020-03-04-pscc-extract-assets/10.jpg)
+![命名子文件夹](./2020-03-04-pscc-extract-assets/10.jpg)
 
-![子文件夹](./images/2020-03-04-pscc-extract-assets/11.jpg)
+![子文件夹](./2020-03-04-pscc-extract-assets/11.jpg)
 
 ### 控制图片品质和尺寸大小
 
