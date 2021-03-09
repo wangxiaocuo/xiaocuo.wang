@@ -1,6 +1,6 @@
 ---
 title: MacOS 安装 nginx-1.18.0
-date: 2020/10/12 21:10:35
+date: 2020/10/12
 tags:
   - nginx
   - macOS

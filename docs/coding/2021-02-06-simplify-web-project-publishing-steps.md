@@ -1,6 +1,6 @@
 ---
 title: 用shell脚本简化web项目发版链路
-date: 2021/02/06 15:59:37
+date: 2021/02/06
 tags:
   - 发版
   - shell
