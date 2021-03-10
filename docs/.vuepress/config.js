@@ -18,7 +18,7 @@ module.exports = {
   themeConfig: {
     search: false,
     nav: [
-      { text: '编程', link: '/coding/2021-03-09-miniapp-auth-process-based-on-phone' },
+      { text: '编程', link: '/coding/2021-03-10-plugins-of-web-app' },
       { text: '工具使用', link: '/tools/2020-10-12-macos-install-nginx-1.18.0' },
       { text: '随笔', link: '/writings/2013-05-25-simple-yearning' },
       { text: 'GitHub', link: 'https://github.com/wangxiaocuo' }
@@ -26,6 +26,7 @@ module.exports = {
     sidebarDepth: 2,
     sidebar: {
       '/coding/': [
+        '2021-03-10-plugins-of-web-app',
         '2021-03-09-miniapp-auth-process-based-on-phone',
         '2021-02-06-simplify-web-project-publishing-steps',
         '2021-02-05-vue-render-function-and-jsx',
