@@ -19,7 +19,7 @@ tags:
   - [GitHub](https://github.com/moment/moment)
   - [npm](https://www.npmjs.com/package/moment)
 - **Day.js**
-  - 和 Moment.js 具有相同 API 的替代品，仅 2kB。
+  - 和 Moment.js 具有相同 API，是 Moment.js 的轻量级替代品，仅 2kB。
   - [官网](https://dayjs.gitee.io/zh-CN/)
   - [GitHub](https://github.com/iamkun/dayjs)
   - [npm](https://www.npmjs.com/package/dayjs)
