@@ -80,7 +80,7 @@ tags:
   - [GitHub](https://github.com/josdejong/jsoneditor)
   - [npm](https://www.npmjs.com/package/jsoneditor)
 - **CodeMirror**
-  - CodeMirror 是使用浏览器的 JavaScript 实现的通用文本编辑器。它专门用于编辑代码，并具有 100 多种语言模式和各种插件，可实现更高级的编辑功能。每种语言都带有功能齐全的代码和语法突出显示，以帮助阅读和编辑复杂的代码。
+  - JavaScript 实现的通用文本编辑器。它专门用于编辑代码，并具有 100 多种语言模式和各种插件，可实现更高级的编辑功能。每种语言都带有功能齐全的代码和语法突出显示，以帮助阅读和编辑复杂的代码。
   - [官网](https://codemirror.net/)
   - [GitHub](https://github.com/josdejong/jsoneditor)
   - [npm](https://www.npmjs.com/package/jsoneditor)
