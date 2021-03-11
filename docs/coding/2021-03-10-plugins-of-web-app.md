@@ -92,7 +92,7 @@ tags:
   - [GitHub](https://github.com/rstacruz/nprogress)
   - [npm](https://www.npmjs.com/package/nprogress)
 - **uuid**
-  - 用于创建 [RFC4122](http://www.ietf.org/rfc/rfc4122.txt) UUID
+  - 用于创建 [RFC4122](http://www.ietf.org/rfc/rfc4122.txt) UUID。
   - [GitHub](https://github.com/uuidjs/uuid)
   - [npm](https://www.npmjs.com/package/uuid)
 - **clipboard.js**
