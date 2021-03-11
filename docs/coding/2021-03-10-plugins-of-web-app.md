@@ -57,6 +57,7 @@ tags:
   - 不依赖任何第三方库的拖放库，兼容低版本浏览器，兼容移动端，自带常用动画效果。
   - [npm](https://www.npmjs.com/package/dnd.js)
 - **Droppable**
+  - 一个轻量级的，响应式的现代 JavaScript 拖放库。
   - [官网](https://shopify.github.io/draggable/examples/)
   - [GitHub](https://github.com/Shopify/draggable)
   - [npm](https://www.npmjs.com/package/@shopify/draggable)
