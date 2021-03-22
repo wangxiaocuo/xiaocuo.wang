@@ -16,7 +16,7 @@ footer: Powered by VuePress | Copyright © 2013-present 王小错
 
 16 年毕业于郑州航空工业管理学院，学的是计算机科学与技术
 
-一名从业四年+的前端开发
+一名从业五年的前端开发
 
 目前在上海工作
 
