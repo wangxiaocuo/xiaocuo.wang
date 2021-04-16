@@ -26,12 +26,12 @@ module.exports = {
     sidebarDepth: 2,
     sidebar: {
       '/coding/': [
-        '2021-03-10-plugins-of-web-app',
-        '2021-03-09-miniapp-auth-process-based-on-phone',
-        '2021-02-06-simplify-web-project-publishing-steps',
-        '2021-02-05-vue-render-function-and-jsx',
-        '2020-07-10-datetime-format',
-        '2020-03-02-newline-problem'
+        '2021-03-10-i',
+        '2021-03-09-i',
+        '2021-02-06-i',
+        '2021-02-05-1',
+        '2020-07-10-i',
+        '2020-03-02-i'
       ],
 
       '/tools/': [
