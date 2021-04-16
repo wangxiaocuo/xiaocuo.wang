@@ -18,14 +18,15 @@ module.exports = {
   themeConfig: {
     search: false,
     nav: [
-      { text: '编程', link: '/coding/2021-03-10-plugins-of-web-app' },
-      { text: '工具使用', link: '/tools/2020-10-12-macos-install-nginx-1.18.0' },
-      { text: '随笔', link: '/writings/2013-05-25-simple-yearning' },
+      { text: '编程', link: '/coding/2021-03-10-i' },
+      { text: '工具使用', link: '/tools/2020-10-12-i' },
+      { text: '随笔', link: '/writings/2013-05-25-i' },
       { text: 'GitHub', link: 'https://github.com/wangxiaocuo' }
     ],
     sidebarDepth: 2,
     sidebar: {
       '/coding/': [
+        '2021-04-16-i',
         '2021-03-10-i',
         '2021-03-09-i',
         '2021-02-06-i',
@@ -35,14 +36,14 @@ module.exports = {
       ],
 
       '/tools/': [
-        '2020-10-12-macos-install-nginx-1.18.0',
-        '2020-03-04-pscc-extract-assets',
-        '2020-03-03-my-macbook-init',
-        '2018-04-15-vscode-snippets',
-        '2018-04-14-vscode-settings'
+        '2020-10-12-i',
+        '2020-03-04-i',
+        '2020-03-03-i',
+        '2018-04-15-i',
+        '2018-04-14-i'
       ],
 
-      '/writings/': ['2013-05-25-simple-yearning']
+      '/writings/': ['2013-05-25-i']
     }
   }
 }
