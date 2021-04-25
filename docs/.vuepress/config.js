@@ -19,7 +19,7 @@ module.exports = {
     search: false,
     nav: [
       { text: '编程', link: '/coding/2021-04-16-i' },
-      { text: '工具使用', link: '/tools/2021-04-25-i' },
+      { text: '工具使用', link: '/tools/2021-04-25-ii' },
       { text: '随笔', link: '/writings/2013-05-25-i' },
       { text: 'GitHub', link: 'https://github.com/wangxiaocuo' }
     ],
@@ -36,6 +36,7 @@ module.exports = {
       ],
 
       '/tools/': [
+        '2021-04-25-ii',
         '2021-04-25-i',
         '2020-10-12-i',
         '2020-03-04-i',
