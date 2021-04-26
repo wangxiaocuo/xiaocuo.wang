@@ -19,7 +19,7 @@ module.exports = {
     search: false,
     nav: [
       { text: '编程', link: '/coding/2021-04-16-i' },
-      { text: '工具使用', link: '/tools/2021-04-26-i' },
+      { text: '工具', link: '/tools/2021-04-26-i' },
       { text: '随笔', link: '/writings/2013-05-25-i' },
       { text: 'GitHub', link: 'https://github.com/wangxiaocuo' }
     ],
