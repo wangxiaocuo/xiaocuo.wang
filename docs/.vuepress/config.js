@@ -18,13 +18,14 @@ module.exports = {
   themeConfig: {
     search: false,
     nav: [
-      { text: '编程', link: '/coding/2021-04-26-i' },
+      { text: '编程', link: '/coding/2021-04-26-ii' },
       { text: '随笔', link: '/writings/2013-05-25-i' },
       { text: 'GitHub', link: 'https://github.com/wangxiaocuo' }
     ],
     sidebarDepth: 2,
     sidebar: {
       '/coding/': [
+        '2021-04-26-ii',
         '2021-04-26-i',
         '2021-04-25-ii',
         '2021-04-25-i',
