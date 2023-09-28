@@ -4,25 +4,15 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Xiaocuo.Wang',
   description: '王小错的个人博客',
+  lastUpdated: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
-
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
+      { text: 'Home', link: '/' }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/wangxiaocuo' }
     ],
 
     footer: {
@@ -36,7 +26,7 @@ export default defineConfig({
           src="/beian.png">
         <span style="vertical-align: middle;">苏ICP备18016910号-3</span>
       </a>`,
-      copyright: 'Copyright © 2018-present 王小错'
+      copyright: 'Copyright © 2019-present 王小错'
     }
   }
 })
