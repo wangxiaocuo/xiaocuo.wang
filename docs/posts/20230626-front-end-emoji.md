@@ -72,7 +72,9 @@ PS：我一直当做“哭笑不得”用的……
 
 "Emoji表情是对拥有悠长历史的视觉表达语言的一种延伸"
 
-![img](./20230626-front-end-emoji.assets/1687318859604-526befe6-a756-4382-8207-871645a57569.png)
+<div align="center">
+  <img src="./20230626-front-end-emoji.assets/1687318859604-526befe6-a756-4382-8207-871645a57569.png" alt="img">
+</div>
 
 
 如今，emoji已经成为了iOS、Android、Mac OS及Windows中默认支持的表情符号。[Unicode15.0](https://unicode.org/Public/emoji/15.0/)中的emoji数量，现在已经增加至3600多个。
@@ -193,7 +195,9 @@ Windows 10、11可以通过`win + .`快捷键，调起表情输入面板（就�
 
 Mac可以通过`control + command + 空格`快捷键，调起表情输入面板：
 
-![img](./20230626-front-end-emoji.assets/1687331239578-2a2e5929-2ead-433e-80fa-8a1ae30a3099.png)
+<div align="center">
+  <img src="./20230626-front-end-emoji.assets/1687331239578-2a2e5929-2ead-433e-80fa-8a1ae30a3099.png" alt="img">
+</div>
 
 ### 3.2 HTML中通过「HTML 实体」使用emoji
 
