@@ -218,10 +218,12 @@ Vue.component('my-component', {
 ```
 
 
-注意：不要使用`index`作为`key`使用，除非在不得已的情况下，比如：
+::: tip 注意
+不要使用`index`作为`key`使用，除非在不得已的情况下，比如：
 
 - 要渲染的数据是字符串数组，其中从业务层面必然存在重复的数据
 - 要渲染的对象数组中，没有可以作为唯一`key`的一个或多个字段（多个字段是指：有时候我们需要用多个字段拼接作为唯一`key`）
+:::
 
 
 
@@ -329,6 +331,9 @@ const vm = new Vue({
 
 ```html
 <div id="demo">{{ fullName }}</div>
+```
+
+```js
 const vm = new Vue({
   el: '#demo',
   data: {
@@ -380,8 +385,9 @@ beforeDestroy() {
 }
 ```
 
-
-注意：如果同一个事件监听器分别为“事件捕获（`capture`为`true`）”和“事件冒泡（`capture`为`false`）”注册了一次，这两个版本的监听器需要分别移除。移除捕获监听器不会影响非捕获版本的相同监听器，反之亦然。具体请参考[EventTarget.removeEventListener() - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/removeEventListener)。
+::: tip 注意
+如果同一个事件监听器分别为“事件捕获（`capture`为`true`）”和“事件冒泡（`capture`为`false`）”注册了一次，这两个版本的监听器需要分别移除。移除捕获监听器不会影响非捕获版本的相同监听器，反之亦然。具体请参考[EventTarget.removeEventListener() - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/removeEventListener)。
+:::
 
 ### 3.7 `Object.freeze()`优化静态数据
 
@@ -427,6 +433,9 @@ import Vue from 'vue'
 import VueVirtualScroller from 'vue-virtual-scroller'
 
 Vue.use(VueVirtualScroller)
+```
+
+```vue
 <template>
   <RecycleScroller
     class="scroller"
@@ -489,8 +498,10 @@ Vue.use(VueLazyload, {
   loading: loadimage,
   attempt: 1
 })
-
 // ...
+```
+
+```vue
 <template>
   <ul>
     <li v-for="img in list" :key="img.id">
@@ -764,7 +775,6 @@ head([1, 2, 3])
 import head from 'lodash/head'
 head([1, 2, 3])
 ```
-
 
 
 另外，得益于ES6+的各种黑科技，其实在大多数情况下，我们对于`Lodash`和`Underscore`等工具函数库的需求并不大，很多方法都有替代方案。详情请见[《You don't (may not) need Lodash/Underscore》](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore)。

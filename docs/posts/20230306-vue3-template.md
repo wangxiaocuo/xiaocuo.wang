@@ -23,7 +23,6 @@ next:
 [Vue3](https://cn.vuejs.org)自2020年09月18日发布至今已经两年多了，相关生态日渐丰满，且随我一起从头搭建一个基础模板，一起踩踩坑。
 
 
-
 本篇文章所讲述的基础模板，参考了以下开源项目：
 
 - [GitHub - sxzz/element-plus-best-practices: Element Plus Best Practices 最佳实践](https://github.com/sxzz/element-plus-best-practices)
@@ -40,7 +39,6 @@ npm init vue@latest
 ![img](./20230306-vue3-template.assets/1674873934210-83a9f99e-169d-4339-b590-855fe39b3fc5.png)
 
 
-
 创建好初始项目后，第一步除了安装依赖外，建议此时初始化git，从头开始分步骤记录修改的过程。后续每个步骤做完，都要记得commit一下代码，精细化记录修改过程。
 
 ```shell
@@ -48,10 +46,9 @@ git init && git add . && git commit -m "build: 工程初始化"
 ```
 
 
-
 初始项目的结构如下：
 
-```shell
+```
 # /@temp/vue3-ts-tmpl
 ├── public
 └── src
@@ -64,17 +61,13 @@ git init && git add . && git commit -m "build: 工程初始化"
 ```
 
 
-
 VSCode中，Vue3的项目推荐安装 `TypeScript Vue Plugin (Volar)`、`Vue Language Features`这两个插件。
-
 
 
 要注意，Vue2项目所需要的`Vetur`和`Volar`是会打架的，不同的项目只能启用一种。
 
 
-
 如果同一时间在维护多个项目，既有Vue2的项目，又有Vue3的项目，切换启用插件就变得非常繁琐。那怎么做才能优雅地使用这两组互斥的插件呢？
-
 
 
 这时候可以选择先全部禁用掉这三个插件，在不同的项目中，只针对于工作区启用不同的插件，即`启用(工作区)`选项。这时VSCode会把当前项目的目录作为一个工作区，启用的插件只作用于当前目录，这样每个项目只需要启用一次。
@@ -82,13 +75,11 @@ VSCode中，Vue3的项目推荐安装 `TypeScript Vue Plugin (Volar)`、`Vue Lan
 ![img](./20230306-vue3-template.assets/1674896246819-3c289ad1-18d8-45d6-8df1-6531a3f215af.png)
 
 
-
 不推荐【另存为工作区】的做法，操作起来真的很反人类。
 
 ## 02 Prettier配置
 
 每次新建一个项目，我的习惯是先配置[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)，保证后续代码修改时风格的统一。
-
 
 
 在根目录下创建文件：`.prettierrc.json`和`.prettierignore`。我常用的配置如下：
@@ -109,6 +100,9 @@ VSCode中，Vue3的项目推荐安装 `TypeScript Vue Plugin (Volar)`、`Vue Lan
   "trailingComma": "none", // 在对象或数组最后一个元素后面不加逗号
   "endOfLine": "auto" // 每行结尾换行符号设置为 auto
 }
+```
+
+```ignore
 #.prettierignore
 
 # dist
@@ -205,13 +199,11 @@ src/views/AboutView.vue
 ```
 
 
-
 这样我们就得到一个最基础的、空白的架子。
 
 ## 04. Husky 安装和配置
 
 为了约束Git提交信息，方便团队协作、问题追溯，需要安装配置husky等工具。
-
 
 
 具体安装配置方式，请参考我的另一篇文章：
@@ -263,14 +255,12 @@ Flag 'importsNotUsedAsValues' is deprecated and will stop functioning in TypeScr
 可以看到`tsconfig.json`通过`references`配置引用了`tsconfig.config.json`，这是一种类似于模块拆分的做法，是ts 3.0的新功能。
 
 
-
 通过两个文件的`include`配置，其实可以很明显得看出来，`tsconfig.config.json`作用于根目录下的一些配置文件，`tsconfig.json`本身作用于`src`目录。
-
 
 
 默认全局的类型文件是放在根目录下的，比如新建项目时生成的`env.d.ts`。后续全局的类型文件多了，放在根目录下会很丑，我们可以选择在根目录下新建`types`目录，把`env.d.ts`移进去。
 
-```shell
+```
 ├── src
 └── types
    └── env.d.ts
@@ -339,7 +329,7 @@ Flag 'importsNotUsedAsValues' is deprecated and will stop functioning in TypeScr
 
 随着后续Vite插件的增多，各插件的配置如果都写在`vite.config.ts`中，会显得杂乱臃肿，最好拆分出来，按模块配置。可以在根目录下新建`build`目录，放置Vite插件相关的配置。
 
-```shell
+```
 ├── build
 |  ├── vite-plugin
 |  |  ├── plugins
@@ -537,11 +527,12 @@ export function loadComponents() {
 }
 ```
 
-注意我这里的两个配置：
+::: tip 注意
+我这里有两个配置：
 
 - `globs: ['src/components/V*/*.vue']`，这个配置只会使`src/components/`目录下以字母`V`开头的组件注册为全局组件。主要是考虑到，一个复杂的组件可能包含一些私有的子组件，这些子组件不需要自动注册为全局组件。
 - `ElementPlusResolver({ exclude: /ElIcon/ })`，我的项目中使用的是ElementPlus作为 UI 框架，这个配置会忽略`ElIcon`组件的自动引入。如果没有这个配置，`ElIcon`组件存在引入顺序问题，导致样式的错乱。详情请参考：https://github.com/element-plus/element-plus/issues/11761。在忽略`ElIcon`后，如果页面中其他 ElementPlus 组件中含有`ElIcon`组件，可以不手动引入，如果没有这样的组件，则需要手动引入`ElIcon`。
-
+:::
 
 
 - `vite-plugin-compression`使用gzip或者brotli来压缩资源
@@ -632,18 +623,15 @@ export function loadWindiCSS() {
 我所使用的Axios版本是`1.3.4`。
 
 
-
 不同版本Axios之间的ts配置略有差异，比如`1.2.3`往请求头中塞入自定义的头字段，需要扩展接口`RawAxiosRequestConfig`，`1.3.4`则是扩展`AxiosRequestConfig`。
-
 
 
 对于Axios的封装配置，各家有各家言，有很多种不同的封装方式。我主张不要**过度封装**。比如Axios提供了`get`、`post`等快捷调用，就不需要再费劲扒拉的再封装一遍`get`、`post`。
 
 
-
 以下是我的常用配置，各位做个参考。
 
-```shell
+```
 # 涉及到的文件
 
 └── src
@@ -1071,7 +1059,6 @@ function splitContentDispositionFilename(response: AxiosResponse) {
 ```
 
 
-
 使用示例：
 
 ```ts
@@ -1157,13 +1144,12 @@ async function handleExportList() {
 <style></style>
 ```
 
-## 10. Vue3可用的工具推荐
+## 10. Vue3可用的部分工具推荐
 
 按需安装。
 
 - [VueUse](https://vueuse.org/)
 - [echarts](https://echarts.apache.org/zh/index.html)
-- [currency.js](https://currency.js.org/)：货币转换工具、千分位格式化工具
 - [decimal.js](https://mikemcl.github.io/decimal.js/)：计算工具，可以解决计算精度问题
 - [dayjs](https://day.js.org/)：Moment.js 的无缝平替
 - [file-saver](https://github.com/eligrey/FileSaver.js)：文件下载
@@ -1174,11 +1160,9 @@ async function handleExportList() {
 - [vuedraggable](https://github.com/SortableJS/vue.draggable.next)：拖拽工具
 
 
-
 ------
 
 以上就是一份比较详细的基础模板搭建过程。在此基础上，你可以继续拓展成后台管理系统或移动端应用的架子。
-
 
 
 希望对你有用。

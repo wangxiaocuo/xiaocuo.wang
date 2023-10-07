@@ -88,7 +88,6 @@ console.table(data [, columns])
 - `columns`可选，需要显示的列的名称的数组。如果没有`columns`参数，则会打印所有列。
 
 
-
 点击每列的顶部标签，可以让表格排序。
 
 ### 2.1 打印单一数据类型
@@ -405,7 +404,6 @@ console.log(`%c
 ASCII Art，是指用一串或一片字符，去构成图案。它是早期互联网上，带宽小、流量少、部分终端不能显示图片的背景下，产出一种表达形式。文字表情（颜文字）其实就是ASCII Art的一种。
 
 
-
 听起来比较抽象，直接上才艺：
 
 - 文字表情（颜文字）
@@ -457,7 +455,6 @@ ASCII Art，是指用一串或一片字符，去构成图案。它是早期互�
 ASCII Art这个概念或许你很陌生，但是以上的例子，你应该很熟悉。
 
 
-
 除了颜文字，其他的ASCII Art的表现形式，通过手敲肯定是不现实的（人形图案打印机除外）。你可以通过以下网站生成ASCII Art：
 
 - [Lunicode](https://lunicode.com/bigtext)
@@ -466,11 +463,9 @@ ASCII Art这个概念或许你很陌生，但是以上的例子，你应该很�
 - [1 Line Art | ASCII art in one line](http://1lineart.kulaone.com/)
 
 
-
 ------
 
 还有很多其他有趣的玩法，比如通过`background-image`引入图片等。这里就不赘述了，等你去探索。
-
 
 
 以上，希望对你有用。

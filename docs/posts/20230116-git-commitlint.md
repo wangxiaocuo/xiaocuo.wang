@@ -64,6 +64,9 @@ npm install husky -D
     "prepare": "husky install"
   },
 }
+```
+
+```shell
 # 手动运行一次
 npm run prepare
 ```
@@ -208,7 +211,7 @@ lint-staged默认会对所有暂存的文件进行lint。我们可以通过配�
 2. 正文可以多行，每行正文都是一段描述性的句子，每行正文前后都需要有空行。
 3. 脚注可以多行，脚注和脚注之前不需要空行。脚注语法：
 
-```
+```shell
 <Word-token>:<space><value>
 <Word-token><space>#<value>
 ```
