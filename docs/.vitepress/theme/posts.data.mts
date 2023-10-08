@@ -31,7 +31,7 @@ export default createContentLoader('posts/*.md', {
 function formatDate(raw: string): Post['date'] {
   const date = new Date(raw)
   date.setUTCHours(12)
-  return date.toLocaleDateString('en-US', {
+  return date.toLocaleDateString('zh-CN', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
