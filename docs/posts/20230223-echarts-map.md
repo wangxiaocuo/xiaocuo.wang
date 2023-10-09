@@ -6,26 +6,18 @@ tags:
   - 前端
   - ECharts
   - GeoJSON
-prev:
-  text: Console的高级用法你知道吗？
-  link: ./20230210-usage-of-console
-next:
-  text: 从头搭一个Vite+Vue3+ts的基础模板
-  link: ./20230306-vue3-template
 ---
 
 # 使用ECharts地图时你应该了解的知识
 
-## 00. 前言
-
 本篇文章是科普向，非实战指南，详细的使用请对照官网配置项手册：[geo](https://echarts.apache.org/zh/option.html#geo)、[series-map](https://echarts.apache.org/zh/option.html#series-map)。
 
+---
 
 2018年3月，百度将ECharts项目捐赠给Apache基金会，ECharts成为了Apache基金会孵化级项目，同时也是首个由百度贡献给国际顶级基金会的开源项目。
 
 
 2021年1月26日晚，Apache基金会正式官宣[Apache ECharts](https://echarts.apache.org/zh/index.html)顺利通过孵化阶段，晋升为Apache顶级项目。
-
 
 到了2023年的今天，ECharts的第五个大版本了已经发布两年了。从v4到v5，ECharts有了很多的[新特性](https://echarts.apache.org/handbook/zh/basics/release-note/v5-feature/)，本篇主要介绍地图相关的使用。
 

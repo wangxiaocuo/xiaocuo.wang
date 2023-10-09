@@ -6,22 +6,13 @@ tags:
   - 前端
   - Vue3
   - Typescript
-prev:
-  text: 使用ECharts地图时你应该了解的知识
-  link: ./20230223-echarts-map
-next:
-  text: 聊聊前端场景中的Emoji
-  link: ./20230626-front-end-emoji
 ---
 
 # 从头搭一个Vite+Vue3+ts的基础模板
 
-前端Vue3TypeScript
-
-## 00. 前言
-
 [Vue3](https://cn.vuejs.org)自2020年09月18日发布至今已经两年多了，相关生态日渐丰满，且随我一起从头搭建一个基础模板，一起踩踩坑。
 
+---
 
 本篇文章所讲述的基础模板，参考了以下开源项目：
 
@@ -102,7 +93,7 @@ VSCode中，Vue3的项目推荐安装 `TypeScript Vue Plugin (Volar)`、`Vue Lan
 }
 ```
 
-```ignore
+```
 #.prettierignore
 
 # dist

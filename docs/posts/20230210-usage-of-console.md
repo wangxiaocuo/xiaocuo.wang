@@ -4,20 +4,13 @@ date: 2023-02-10
 outline: deep
 tags:
   - 前端
-prev:
-  text: 前端怎样约束Git提交信息？
-  link: ./20230116-git-commitlint
-next:
-  text: 使用ECharts地图时你应该了解的知识
-  link: ./20230223-echarts-map
 ---
 
 # Console的高级用法你知道吗？
 
-## 00.前言
-
 `Console`对象提供了浏览器控制台调试的接口（如：Firefox的[Web Console](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html)）。在不同宿主环境上它的工作方式可能不一样，但通常都会提供一套共性的功能。
 
+---
 
 `Console`对象所提供的`console.*(...)`这样的方法，其实是**宿主环境**（比如：浏览器、NodeJS等）提供的用于控制台调试的，它并不是JavaScript正式语法的一部分。
 

@@ -5,22 +5,16 @@ outline: deep
 tags:
   - 前端
   - Git
-prev:
-  text: Vue2项目可以做哪些性能优化措施？
-  link: ./20230113-optimization-vue2
-next:
-  text: Console的高级用法你知道吗？
-  link: ./20230210-usage-of-console
 ---
 
 # 前端怎样约束Git提交信息？
-
-## 00. 前言
 
 优雅的Git提交信息，可以很直观表达仓库的变更，方便团队协作、问题追溯。并且可以很方便地根据`git log`产出`CHANGELOG`。
 
 
 怎么样才能算是**优雅**的Git提交信息呢？可以参考：[《约定式提交规范（Conventional Commits）》](https://www.conventionalcommits.org/zh-hans/v1.0.0/)。
+
+---
 
 
 《约定式提交规范（Conventional Commits）》是一种基于提交信息的轻量级约定，它提供了一组简单规则来创建清晰的提交历史，更有利于编写自动化工具。

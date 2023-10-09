@@ -5,20 +5,13 @@ outline: deep
 tags:
   - 前端
   - Emoji
-prev:
-  text: 从头搭一个Vite+Vue3+ts的基础模板
-  link: ./20230306-vue3-template
-next:
-  text: 聊聊日期时间的那些事儿
-  link: ./20230815-date-time
 ---
 
-# 聊聊前端场景中的Emoji
-
-## 00. 前言
+# 从头搭一个Vite+Vue3+ts的基础模板
 
 Emoji相信大家耳熟能详，今天我们来聊聊emoji的发展历史，以及在前端开发中使用emoji的一些小技巧。
 
+---
 
 我国不同地区对于emoji的称呼稍有差别：
 
@@ -240,7 +233,7 @@ HTML实体形式是有它的使用场景的，比如多方联调时，数据需�
 
 这时候就是HTML实体出场的时候了，可以通过正则匹配出所有的emoji，然后替换成HTML实体的形式。这个正则怎么写？太复杂了，俺也不会，不过好在互联网上能人无数，比如可以参考[Lodash](https://lodash.com/)的：
 
-```plain
+```
 (?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff])[\ufe0e\ufe0f]?(?:[\u0300-\u036f\ufe20-\ufe23\u20d0-\u20f0]|\ud83c[\udffb-\udfff])?(?:\u200d(?:[^\ud800-\udfff]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff])[\ufe0e\ufe0f]?(?:[\u0300-\u036f\ufe20-\ufe23\u20d0-\u20f0]|\ud83c[\udffb-\udfff])?)*
 ```
 

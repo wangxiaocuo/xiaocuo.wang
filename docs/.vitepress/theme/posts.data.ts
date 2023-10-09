@@ -22,7 +22,7 @@ export default createContentLoader('posts/*.md', {
           title: frontmatter.title,
           url,
           date: formatDate(frontmatter.date),
-          excerpt
+          excerpt: excerpt?.replace(/^<h1[^>]*>.*?<\/h1>/, '')
         }
       })
   }
