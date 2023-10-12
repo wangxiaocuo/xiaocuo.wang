@@ -1,22 +1,20 @@
 ---
-title: Console的高级用法你知道吗？
+title: Console 的高级用法你知道吗？
 date: 2023-02-10
 outline: deep
 tags:
   - 前端
 ---
 
-# Console的高级用法你知道吗？
+# Console 的高级用法你知道吗？
 
-`Console`对象提供了浏览器控制台调试的接口（如：Firefox的[Web Console](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html)）。在不同宿主环境上它的工作方式可能不一样，但通常都会提供一套共性的功能。
+`Console`对象提供了浏览器控制台调试的接口（如：Firefox 的[Web Console](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html)）。在不同宿主环境上它的工作方式可能不一样，但通常都会提供一套共性的功能。
 
 ---
 
-`Console`对象所提供的`console.*(...)`这样的方法，其实是**宿主环境**（比如：浏览器、NodeJS等）提供的用于控制台调试的，它并不是JavaScript正式语法的一部分。
+`Console`对象所提供的`console.*(...)`这样的方法，其实是**宿主环境**（比如：浏览器、NodeJS 等）提供的用于控制台调试的，它并不是 JavaScript 正式语法的一部分。
 
-
-它本质上是一个I/O操作，但是又不是简单意义上的**宏任务**，宿主环境的区别会导致`console.*(...)`方法有一定细微的差别，在某些条件下，某些浏览器并不会把传入的内容立即输出。至于到底什么时候控制台I/O会延迟，这是一个不确定的问题。
-
+它本质上是一个 I/O 操作，但是又不是简单意义上的**宏任务**，宿主环境的区别会导致`console.*(...)`方法有一定细微的差别，在某些条件下，某些浏览器并不会把传入的内容立即输出。至于到底什么时候控制台 I/O 会延迟，这是一个不确定的问题。
 
 所以调试时，不要盲目相信`console`的输出，特别是打印引用类型时。比如以下代码：
 
@@ -30,11 +28,9 @@ obj.b = 2
 
 ![img](./20230210-usage-of-console.assets/1677041214202-43231772-813f-4372-95df-c4dfb51f9462.png)
 
-
 看着好像没问题，但是这里的`{a: 1}`，其实是`obj`对象的快照。把它展开，就会发现问题所在，在打印`obj`的那一刻，理应不存在属性`b`：
 
 ![img](./20230210-usage-of-console.assets/1677041236418-b187654a-ae8b-4b24-aab3-defd1b8a77d0.png)
-
 
 如果非要用`console.*(...)`方法做一些细致的调试，可以在打印引用对象或数组时进行序列化+反序列化，防止疑问产生：
 
@@ -67,9 +63,7 @@ console.debug('调试信息')
 
 `console.table()`可以将**列表型**的数据打印成表格，这里的列表型数据指的是*数组或者对象*。
 
-
 表格的第一列是`index`。如果数据`data`是一个数组，那么这一列的单元格的值就是数组的索引。如果数据是一个对象，那么它们的值就是各对象的属性名称。
-
 
 语法：
 
@@ -79,7 +73,6 @@ console.table(data [, columns])
 
 - `data`必须，且必须是一个数组或者是一个对象
 - `columns`可选，需要显示的列的名称的数组。如果没有`columns`参数，则会打印所有列。
-
 
 点击每列的顶部标签，可以让表格排序。
 
@@ -111,7 +104,6 @@ console.table(me)
 ### 2.2 打印复合的参数类型
 
 如果需要打印的元素在一个数组中，或者需要打印的属性在一个对象，并且他们本身就是一个数组或者对象，则将会把这个元素显示在同一行，每个元素占一列。
-
 
 - 打印一个二元数组
 
@@ -207,11 +199,7 @@ console.time(timerName)
 console.timeEnd(timerName)
 ```
 
-
-
-页面中最多能同时运行10000个计时器。
-
-
+页面中最多能同时运行 10000 个计时器。
 
 在计时结束之前，也可以通过`console.timeLog`来打印中途某个操作的时间。
 
@@ -237,26 +225,25 @@ console.timeEnd('answer time')
 
 可以使用嵌套组来把一组关联的打印合并。用`console.group()`可以创建新的嵌套块，用`console.groupCollapsed()`创建默认折叠的块。嵌套组需要通过`console.groupEnd()`闭合。
 
-
 示例：
 
 ```js
 // 为了方便观察，我用缩进表示了层级
 console.log('A1')
 console.group()
-  console.log('B1')
-  console.info('B2')
-  console.group()
-    console.warn('C1')
-    console.warn('C2')
-    console.groupCollapsed()
-      console.error('D1')
-      console.error('D2')
-    console.groupEnd()
-    console.warn('C3')
-  console.groupEnd()
-  console.debug('B3')
-  console.info('B4')
+console.log('B1')
+console.info('B2')
+console.group()
+console.warn('C1')
+console.warn('C2')
+console.groupCollapsed()
+console.error('D1')
+console.error('D2')
+console.groupEnd()
+console.warn('C3')
+console.groupEnd()
+console.debug('B3')
+console.info('B4')
 console.groupEnd()
 console.debug('A2')
 ```
@@ -266,7 +253,6 @@ console.debug('A2')
 ## 05. 堆栈跟踪
 
 通过`console.trace`可以追踪函数的调用路径。这么说起来很抽象，简单来讲就是，把`console.trace()`放在一个方法中，一旦`console.trace()`被调用了，那么就会输出从一开始到`console.trace()`的所有方法的执行路径。
-
 
 通过例子或许能很好的理解——
 
@@ -284,7 +270,6 @@ outer()
 ```
 
 ![img](./20230210-usage-of-console.assets/1673342329121-529308be-4f6c-4e6c-b0a3-0bdcda8efe72.png)
-
 
 由于是堆栈信息，所以得倒着看，执行到`console.trace()`的时候，是调用了`outer`和`inner`这两个方法。
 
@@ -312,18 +297,17 @@ const result = add3(1, 1)
 
 同理，执行到`console.trace()`的时候，是调用了`add1`、 `add2`、`add3`和`add`这四个方法。
 
-
 `console.trace()`有时候对于接手别人写的复杂模块的时候，还是挺有用的。
 
 ## 06. 打印花里胡哨
 
 ### 6.1 样式占位符
 
-很多编程语言的打印方法，都有占位符这样的东西。比如C语言的`printf("%d ", 10)`，其中的`%d`表示*十进制整型数据*，这里输出10。
+很多编程语言的打印方法，都有占位符这样的东西。比如 C 语言的`printf("%d ", 10)`，其中的`%d`表示*十进制整型数据*，这里输出 10。
 
-JavaScript也有占位符，不过用的比较少。但是通过占位符可以实现一些花里胡哨的信息。
+JavaScript 也有占位符，不过用的比较少。但是通过占位符可以实现一些花里胡哨的信息。
 
-JavaScript支持的占位符：
+JavaScript 支持的占位符：
 
 - `%s`：字符串
 
@@ -332,18 +316,21 @@ JavaScript支持的占位符：
 - `%i`：整数
 - `%f`：浮点数
 
-- `%o`：DOM对象
+- `%o`：DOM 对象
 
-- `%O`：JavaScript对象
+- `%O`：JavaScript 对象
 
-- `%c`：CSS样式
+- `%c`：CSS 样式
 
-其中的`%c`是JavaScript特有的，可以标记从该`%c`开始后续行的样式。
+其中的`%c`是 JavaScript 特有的，可以标记从该`%c`开始后续行的样式。
 
 例如：
 
 ```js
-console.log(`欢迎加入我们的%c大家庭`, `font-size: 30px; font-weight: bold; color: #ef475d`)
+console.log(
+  `欢迎加入我们的%c大家庭`,
+  `font-size: 30px; font-weight: bold; color: #ef475d`
+)
 ```
 
 ![img](./20230210-usage-of-console.assets/1673342398122-6a576557-a147-4a98-ae86-d2ba953a473e.png)
@@ -367,7 +354,8 @@ console.log(
 比如这样：
 
 ```js
-console.log(`%c
+console.log(
+  `%c
 
 
                                %c FBI WARNING %c
@@ -383,10 +371,10 @@ console.log(`%c
 
 
 `,
-'background: #000; font-size: 18px; font-family: monospace',
-'background: #f33; font-size: 18px; font-family: monospace; color: #eee; text-shadow:0 0 1px #fff',
-'background: #000; font-size: 18px; font-family: monospace',
-'background: #000; font-size: 18px; font-family: monospace; color: #ddd; text-shadow:0 0 2px #fff'
+  'background: #000; font-size: 18px; font-family: monospace',
+  'background: #f33; font-size: 18px; font-family: monospace; color: #eee; text-shadow:0 0 1px #fff',
+  'background: #000; font-size: 18px; font-family: monospace',
+  'background: #000; font-size: 18px; font-family: monospace; color: #ddd; text-shadow:0 0 2px #fff'
 )
 ```
 
@@ -394,8 +382,7 @@ console.log(`%c
 
 ### 6.2 ASCII Art
 
-ASCII Art，是指用一串或一片字符，去构成图案。它是早期互联网上，带宽小、流量少、部分终端不能显示图片的背景下，产出一种表达形式。文字表情（颜文字）其实就是ASCII Art的一种。
-
+ASCII Art，是指用一串或一片字符，去构成图案。它是早期互联网上，带宽小、流量少、部分终端不能显示图片的背景下，产出一种表达形式。文字表情（颜文字）其实就是 ASCII Art 的一种。
 
 听起来比较抽象，直接上才艺：
 
@@ -445,20 +432,17 @@ ASCII Art，是指用一串或一片字符，去构成图案。它是早期互�
  */
 ```
 
-ASCII Art这个概念或许你很陌生，但是以上的例子，你应该很熟悉。
+ASCII Art 这个概念或许你很陌生，但是以上的例子，你应该很熟悉。
 
-
-除了颜文字，其他的ASCII Art的表现形式，通过手敲肯定是不现实的（人形图案打印机除外）。你可以通过以下网站生成ASCII Art：
+除了颜文字，其他的 ASCII Art 的表现形式，通过手敲肯定是不现实的（人形图案打印机除外）。你可以通过以下网站生成 ASCII Art：
 
 - [Lunicode](https://lunicode.com/bigtext)
 - [ASCII Art Generator - Online “HD” Color Image to Text Converter ▄▀▄▀█▓▒░](https://asciiart.club/)
 - [Text to ASCII Art Generator (TAAG)](http://patorjk.com/software/taag/)
 - [1 Line Art | ASCII art in one line](http://1lineart.kulaone.com/)
 
-
-------
+---
 
 还有很多其他有趣的玩法，比如通过`background-image`引入图片等。这里就不赘述了，等你去探索。
-
 
 以上，希望对你有用。

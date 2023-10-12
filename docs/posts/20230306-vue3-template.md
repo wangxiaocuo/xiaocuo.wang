@@ -1,5 +1,5 @@
 ---
-title: 从头搭一个Vite+Vue3+ts的基础模板
+title: 从头搭一个 Vite+Vue3+ts 的基础模板
 date: 2023-03-06
 outline: deep
 tags:
@@ -8,9 +8,9 @@ tags:
   - Typescript
 ---
 
-# 从头搭一个Vite+Vue3+ts的基础模板
+# 从头搭一个 Vite+Vue3+ts 的基础模板
 
-[Vue3](https://cn.vuejs.org)自2020年09月18日发布至今已经两年多了，相关生态日渐丰满，且随我一起从头搭建一个基础模板，一起踩踩坑。
+[Vue3](https://cn.vuejs.org)自 2020 年 09 月 18 日发布至今已经两年多了，相关生态日渐丰满，且随我一起从头搭建一个基础模板，一起踩踩坑。
 
 ---
 
@@ -21,7 +21,7 @@ tags:
 
 ## 01. 新建项目
 
-参照官网所述，先[创建一个Vue应用](https://cn.vuejs.org/guide/quick-start.html#creating-a-vue-application)。注意`npm init <initializer>`命令需要安装较新版本的[Node.js](https://nodejs.org/en/)，注意查看自己的npm版本（`npm -v`），如果小于`5.2.0`，就需要升级了。
+参照官网所述，先[创建一个 Vue 应用](https://cn.vuejs.org/guide/quick-start.html#creating-a-vue-application)。注意`npm init <initializer>`命令需要安装较新版本的[Node.js](https://nodejs.org/en/)，注意查看自己的 npm 版本（`npm -v`），如果小于`5.2.0`，就需要升级了。
 
 ```shell
 npm init vue@latest
@@ -29,13 +29,11 @@ npm init vue@latest
 
 ![img](./20230306-vue3-template.assets/1674873934210-83a9f99e-169d-4339-b590-855fe39b3fc5.png)
 
-
-创建好初始项目后，第一步除了安装依赖外，建议此时初始化git，从头开始分步骤记录修改的过程。后续每个步骤做完，都要记得commit一下代码，精细化记录修改过程。
+创建好初始项目后，第一步除了安装依赖外，建议此时初始化 git，从头开始分步骤记录修改的过程。后续每个步骤做完，都要记得 commit 一下代码，精细化记录修改过程。
 
 ```shell
 git init && git add . && git commit -m "build: 工程初始化"
 ```
-
 
 初始项目的结构如下：
 
@@ -51,27 +49,21 @@ git init && git add . && git commit -m "build: 工程初始化"
    └── views
 ```
 
+VSCode 中，Vue3 的项目推荐安装 `TypeScript Vue Plugin (Volar)`、`Vue Language Features`这两个插件。
 
-VSCode中，Vue3的项目推荐安装 `TypeScript Vue Plugin (Volar)`、`Vue Language Features`这两个插件。
+要注意，Vue2 项目所需要的`Vetur`和`Volar`是会打架的，不同的项目只能启用一种。
 
+如果同一时间在维护多个项目，既有 Vue2 的项目，又有 Vue3 的项目，切换启用插件就变得非常繁琐。那怎么做才能优雅地使用这两组互斥的插件呢？
 
-要注意，Vue2项目所需要的`Vetur`和`Volar`是会打架的，不同的项目只能启用一种。
-
-
-如果同一时间在维护多个项目，既有Vue2的项目，又有Vue3的项目，切换启用插件就变得非常繁琐。那怎么做才能优雅地使用这两组互斥的插件呢？
-
-
-这时候可以选择先全部禁用掉这三个插件，在不同的项目中，只针对于工作区启用不同的插件，即`启用(工作区)`选项。这时VSCode会把当前项目的目录作为一个工作区，启用的插件只作用于当前目录，这样每个项目只需要启用一次。
+这时候可以选择先全部禁用掉这三个插件，在不同的项目中，只针对于工作区启用不同的插件，即`启用(工作区)`选项。这时 VSCode 会把当前项目的目录作为一个工作区，启用的插件只作用于当前目录，这样每个项目只需要启用一次。
 
 ![img](./20230306-vue3-template.assets/1674896246819-3c289ad1-18d8-45d6-8df1-6531a3f215af.png)
 
-
 不推荐【另存为工作区】的做法，操作起来真的很反人类。
 
-## 02 Prettier配置
+## 02 Prettier 配置
 
 每次新建一个项目，我的习惯是先配置[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)，保证后续代码修改时风格的统一。
-
 
 在根目录下创建文件：`.prettierrc.json`和`.prettierignore`。我常用的配置如下：
 
@@ -123,9 +115,9 @@ tsconfig.node.json
 README.md
 ```
 
-## 03. 删除demo代码
+## 03. 删除 demo 代码
 
-初始的项目中，有一些demo代码，需要删除掉，以便于后续的改造。
+初始的项目中，有一些 demo 代码，需要删除掉，以便于后续的改造。
 
 1. `src/App.vue`修改
 
@@ -174,8 +166,8 @@ export default router
 1. 全局样式文件修改
 
 1. 删除`src/assets/base.css`中的所有代码
-2. `src/assets/main.css`中只保留代码`@import './base.css';`
-3. `src/assets/base.css`、`src/assets/main.css`，移动到`src/styles`下
+1. `src/assets/main.css`中只保留代码`@import './base.css';`
+1. `src/assets/base.css`、`src/assets/main.css`，移动到`src/styles`下
 
 1. 删除以下文件
 
@@ -189,13 +181,11 @@ src/components/WelcomItem.vue
 src/views/AboutView.vue
 ```
 
-
 这样我们就得到一个最基础的、空白的架子。
 
 ## 04. Husky 安装和配置
 
-为了约束Git提交信息，方便团队协作、问题追溯，需要安装配置husky等工具。
-
+为了约束 Git 提交信息，方便团队协作、问题追溯，需要安装配置 husky 等工具。
 
 具体安装配置方式，请参考我的另一篇文章：
 
@@ -203,7 +193,7 @@ src/views/AboutView.vue
 
 ## 05. 解决 TS 版本兼容问题
 
-如果你的VSCode安装了插件`JavaScript and TypeScript Nightly`，并且版本 >= `v5.0.202301270`，那么打开ts配置文件 `tsconfig.json`或`tsconfig.config.json`时，可能会报错（如果未报错，请忽略此步）。
+如果你的 VSCode 安装了插件`JavaScript and TypeScript Nightly`，并且版本 >= `v5.0.202301270`，那么打开 ts 配置文件 `tsconfig.json`或`tsconfig.config.json`时，可能会报错（如果未报错，请忽略此步）。
 
 ![img](./20230306-vue3-template.assets/1674894072979-58b9818d-2963-4ac9-bda0-63171bad2afe.png)
 
@@ -218,11 +208,11 @@ Flag 'importsNotUsedAsValues' is deprecated and will stop functioning in TypeScr
 
 有两个方案解决这个问题：
 
-1. 卸载插件`JavaScript and TypeScript Nightly`，卸载后会缺少一些最新ts语法的代码补全提示
-2. 手动选择当前工作区的ts版本
+1. 卸载插件`JavaScript and TypeScript Nightly`，卸载后会缺少一些最新 ts 语法的代码补全提示
+2. 手动选择当前工作区的 ts 版本
 
-1. 手动选择可通过VSCode底部面板选择，需先打开一个`.ts`的文件，比如`vite.config.ts`
-2. 点击底部TypeScript选项左侧的`{}`
+3. 手动选择可通过 VSCode 底部面板选择，需先打开一个`.ts`的文件，比如`vite.config.ts`
+4. 点击底部 TypeScript 选项左侧的`{}`
 
 ![img](./20230306-vue3-template.assets/1674894517755-9107cd04-fa6f-4e01-8952-262783c87cf9.png)
 
@@ -243,11 +233,9 @@ Flag 'importsNotUsedAsValues' is deprecated and will stop functioning in TypeScr
 
 ![img](./20230306-vue3-template.assets/1674897829072-70bd963b-54ea-43fb-a80b-452ec7323cbc.png)
 
-可以看到`tsconfig.json`通过`references`配置引用了`tsconfig.config.json`，这是一种类似于模块拆分的做法，是ts 3.0的新功能。
-
+可以看到`tsconfig.json`通过`references`配置引用了`tsconfig.config.json`，这是一种类似于模块拆分的做法，是 ts 3.0 的新功能。
 
 通过两个文件的`include`配置，其实可以很明显得看出来，`tsconfig.config.json`作用于根目录下的一些配置文件，`tsconfig.json`本身作用于`src`目录。
-
 
 默认全局的类型文件是放在根目录下的，比如新建项目时生成的`env.d.ts`。后续全局的类型文件多了，放在根目录下会很丑，我们可以选择在根目录下新建`types`目录，把`env.d.ts`移进去。
 
@@ -264,25 +252,15 @@ Flag 'importsNotUsedAsValues' is deprecated and will stop functioning in TypeScr
 ```json
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": [
-    "src/**/*",
-    "src/**/*.vue",
-    "types/**/*"
-  ],
+  "include": ["src/**/*", "src/**/*.vue", "types/**/*"],
   "compilerOptions": {
     "baseUrl": ".",
-    "typeRoots": [
-      "./node_modules/@types/",
-      "./types"
-    ],
+    "typeRoots": ["./node_modules/@types/", "./types"],
     "paths": {
       "@/*": ["./src/*"],
       "#/*": ["./types/*"]
     },
-    "types": [
-      "unplugin-icons/types/vue",
-      "element-plus/global"
-    ]
+    "types": ["unplugin-icons/types/vue", "element-plus/global"]
   },
   "references": [
     {
@@ -308,17 +286,14 @@ Flag 'importsNotUsedAsValues' is deprecated and will stop functioning in TypeScr
   "compilerOptions": {
     "composite": true,
     "types": ["node"],
-    "typeRoots": [
-      "./node_modules/@types/",
-      "./types"
-    ],
+    "typeRoots": ["./node_modules/@types/", "./types"]
   }
 }
 ```
 
 ## 07. Vite 插件拆分配置
 
-随着后续Vite插件的增多，各插件的配置如果都写在`vite.config.ts`中，会显得杂乱臃肿，最好拆分出来，按模块配置。可以在根目录下新建`build`目录，放置Vite插件相关的配置。
+随着后续 Vite 插件的增多，各插件的配置如果都写在`vite.config.ts`中，会显得杂乱臃肿，最好拆分出来，按模块配置。可以在根目录下新建`build`目录，放置 Vite 插件相关的配置。
 
 ```
 ├── build
@@ -438,9 +413,9 @@ export function loadAutoImport() {
 }
 ```
 
-## 08. 常用Vite插件及配置
+## 08. 常用 Vite 插件及配置
 
-- `unplugin-auto-import`自动引入APIs
+- `unplugin-auto-import`自动引入 APIs
 
 ```ts
 import AutoImport from 'unplugin-auto-import/vite'
@@ -522,11 +497,10 @@ export function loadComponents() {
 我这里有两个配置：
 
 - `globs: ['src/components/V*/*.vue']`，这个配置只会使`src/components/`目录下以字母`V`开头的组件注册为全局组件。主要是考虑到，一个复杂的组件可能包含一些私有的子组件，这些子组件不需要自动注册为全局组件。
-- `ElementPlusResolver({ exclude: /ElIcon/ })`，我的项目中使用的是ElementPlus作为 UI 框架，这个配置会忽略`ElIcon`组件的自动引入。如果没有这个配置，`ElIcon`组件存在引入顺序问题，导致样式的错乱。详情请参考：https://github.com/element-plus/element-plus/issues/11761。在忽略`ElIcon`后，如果页面中其他 ElementPlus 组件中含有`ElIcon`组件，可以不手动引入，如果没有这样的组件，则需要手动引入`ElIcon`。
-:::
+- `ElementPlusResolver({ exclude: /ElIcon/ })`，我的项目中使用的是 ElementPlus 作为 UI 框架，这个配置会忽略`ElIcon`组件的自动引入。如果没有这个配置，`ElIcon`组件存在引入顺序问题，导致样式的错乱。详情请参考：https://github.com/element-plus/element-plus/issues/11761。在忽略`ElIcon`后，如果页面中其他 ElementPlus 组件中含有`ElIcon`组件，可以不手动引入，如果没有这样的组件，则需要手动引入`ElIcon`。
+  :::
 
-
-- `vite-plugin-compression`使用gzip或者brotli来压缩资源
+- `vite-plugin-compression`使用 gzip 或者 brotli 来压缩资源
 
 ```ts
 import Compression from 'vite-plugin-compression'
@@ -546,7 +520,7 @@ export function loadCompression() {
 }
 ```
 
-- `vite-plugin-html`HTML压缩能力、EJS模版能力等
+- `vite-plugin-html`HTML 压缩能力、EJS 模版能力等
 
 ```ts
 // https://cn.vitejs.dev/guide/env-and-mode.html#intellisense
@@ -594,7 +568,7 @@ export function loadIcons() {
 }
 ```
 
-- `vite-plugin-windicss`Windi CSS插件
+- `vite-plugin-windicss`Windi CSS 插件
 
 ```ts
 import WindiCSS from 'vite-plugin-windicss'
@@ -609,16 +583,13 @@ export function loadWindiCSS() {
 }
 ```
 
-## 09. Axios封装配置
+## 09. Axios 封装配置
 
-我所使用的Axios版本是`1.3.4`。
+我所使用的 Axios 版本是`1.3.4`。
 
+不同版本 Axios 之间的 ts 配置略有差异，比如`1.2.3`往请求头中塞入自定义的头字段，需要扩展接口`RawAxiosRequestConfig`，`1.3.4`则是扩展`AxiosRequestConfig`。
 
-不同版本Axios之间的ts配置略有差异，比如`1.2.3`往请求头中塞入自定义的头字段，需要扩展接口`RawAxiosRequestConfig`，`1.3.4`则是扩展`AxiosRequestConfig`。
-
-
-对于Axios的封装配置，各家有各家言，有很多种不同的封装方式。我主张不要**过度封装**。比如Axios提供了`get`、`post`等快捷调用，就不需要再费劲扒拉的再封装一遍`get`、`post`。
-
+对于 Axios 的封装配置，各家有各家言，有很多种不同的封装方式。我主张不要**过度封装**。比如 Axios 提供了`get`、`post`等快捷调用，就不需要再费劲扒拉的再封装一遍`get`、`post`。
 
 以下是我的常用配置，各位做个参考。
 
@@ -721,7 +692,11 @@ function setRequestInterceptor(instance: AxiosInstance) {
         config.headers[TOKEN_KEY] = token
       }
 
-      if (config.needTransformToForm && config.data && typeof config.data === 'object') {
+      if (
+        config.needTransformToForm &&
+        config.data &&
+        typeof config.data === 'object'
+      ) {
         // 部分接口是老接口，根据 needTransformToForm 配置，按需转为表单类型
         try {
           const formData = new FormData()
@@ -1049,7 +1024,6 @@ function splitContentDispositionFilename(response: AxiosResponse) {
 }
 ```
 
-
 使用示例：
 
 ```ts
@@ -1063,13 +1037,9 @@ import { saveAs } from 'file-saver'
  * 某分页接口
  */
 export function getPageList(data: Record<string, any>) {
-  return instance.post(
-    '/xxx/pageList',
-    data,
-    {
-      needTransformToForm: true
-    }
-  )
+  return instance.post('/xxx/pageList', data, {
+    needTransformToForm: true
+  })
 }
 
 /**
@@ -1083,11 +1053,9 @@ export function getXXXInfo(params: Record<string, any>) {
  * 某导出列表接口
  */
 export async function exportList(data: Record<string, any>) {
-  const res = await s2Instance.post(
-    '/xxx/download',
-    params,
-    { responseType: 'blob' }
-  )
+  const res = await s2Instance.post('/xxx/download', params, {
+    responseType: 'blob'
+  })
   saveAs(res.data.blob, res.data.filename || `数据导出.xlsx`)
 }
 ```
@@ -1135,7 +1103,7 @@ async function handleExportList() {
 <style></style>
 ```
 
-## 10. Vue3可用的部分工具推荐
+## 10. Vue3 可用的部分工具推荐
 
 按需安装。
 
@@ -1150,10 +1118,8 @@ async function handleExportList() {
 - [vue-clipboard3](https://github.com/JamieCurnow/vue-clipboard3)：使用简单的复制粘贴工具
 - [vuedraggable](https://github.com/SortableJS/vue.draggable.next)：拖拽工具
 
-
-------
+---
 
 以上就是一份比较详细的基础模板搭建过程。在此基础上，你可以继续拓展成后台管理系统或移动端应用的架子。
-
 
 希望对你有用。
