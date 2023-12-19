@@ -8,7 +8,7 @@ tags:
 
 # Console 的高级用法你知道吗？
 
-`Console` 对象提供了浏览器控制台调试的接口（如：Firefox 的[Web Console](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html)）。在不同宿主环境上它的工作方式可能不一样，但通常都会提供一套共性的功能。
+`Console` 对象提供了浏览器控制台调试的接口（如：Firefox 的 [Web Console](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html)）。在不同宿主环境上它的工作方式可能不一样，但通常都会提供一套共性的功能。
 
 ---
 

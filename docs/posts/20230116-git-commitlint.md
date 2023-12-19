@@ -29,7 +29,7 @@ Git 本身就有[钩子（hooks）](https://git-scm.com/book/zh/v2/自定义-Git
 
 但是 Git 的钩子，配置比较繁琐，并且我们需要用到的比如 `pre-commit` 钩子，属于**客户端钩子**，并不会同步到其他协作人员的 `.git` 目录中。
 
-而[Husky](https://github.com/typicode/husky)的出现，可以让我们很方便地配置 Git 钩子，解决了 Git 原生钩子配置繁琐、协作人员之间不能同步的问题。
+而 [Husky](https://github.com/typicode/husky) 的出现，可以让我们很方便地配置 Git 钩子，解决了 Git 原生钩子配置繁琐、协作人员之间不能同步的问题。
 
 以下关于 Husky 的讲解，都是 `5.0` 及以后的版本。`5.0` 及以后的版本，初始化后，会在项目根目录下生成 `.husky` 目录，可以在其中添加自定义钩子配置文件。
 
@@ -72,7 +72,7 @@ npx husky add .husky/commit-msg ""
 
 ### 1.2 Commitlint
 
-上面我们安装了 Husky，并且添加了两个钩子，但此时还不能约束开发人员的 Git 提交信息。我们需要借助[Commitlint](https://github.com/conventional-changelog/commitlint)来辅助校验提交信息。
+上面我们安装了 Husky，并且添加了两个钩子，但此时还不能约束开发人员的 Git 提交信息。我们需要借助 [Commitlint](https://github.com/conventional-changelog/commitlint) 来辅助校验提交信息。
 
 #### 1.2.1 安装
 
@@ -120,7 +120,7 @@ git commit -m "chore: 使用 Husky + Commitlint 规范 Git 提交信息"
 
 ### 1.3 lint-staged
 
-[lint-staged](https://github.com/okonet/lint-staged)可以配合 Husky 的 `pre-commit` 钩子，在 Git 提交之前，对暂存的文件运行 linters 校验。
+[lint-staged](https://github.com/okonet/lint-staged) 可以配合 Husky 的 `pre-commit` 钩子，在 Git 提交之前，对暂存的文件运行 linters 校验。
 
 #### 1.3.1 安装
 
@@ -178,7 +178,7 @@ lint-staged 默认会对所有暂存的文件进行 lint。我们可以通过配
 ```
 
 1. 类型和描述必填，其他可选。
-2. 类型包括（可以参考[Angular 约定](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type)）：
+2. 类型包括（可以参考 [Angular 约定](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type)）：
 
 - `build`：影响构建系统或外部依赖关系的更改（示例范围：gulp、Brocoli、npm）
 - `ci`：对 CI 配置文件和脚本的更改（示例范围：Travis、Circle、BrowserStack、SauceLabs）
@@ -256,7 +256,7 @@ Refs: #demo
 
 ### 2.3 Commitizen
 
-如果你不能清楚的记得不同的类型对应的含义，又不想频繁翻阅文档，可以选择安装[Commitizen](https://github.com/commitizen/cz-cli)，它可以辅助填写 Git 提交的必填信息。
+如果你不能清楚的记得不同的类型对应的含义，又不想频繁翻阅文档，可以选择安装 [Commitizen](https://github.com/commitizen/cz-cli)，它可以辅助填写 Git 提交的必填信息。
 
 #### 2.3.1 初始化
 

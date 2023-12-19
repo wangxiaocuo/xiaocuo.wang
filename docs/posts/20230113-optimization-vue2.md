@@ -392,7 +392,7 @@ new Vue({
 
 如果需要滚动展示**超长的列表**，需要用上虚拟滚动技术。什么是虚拟滚动？简单来讲，就是只渲染当前可见的 DOM 节点，其余部分为“虚拟”的。
 
-[vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller/tree/v1/packages/vue-virtual-scroller)是一个优秀的虚拟滚动库，可以帮助我们快捷地实现虚拟滚动。
+[vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller/tree/v1/packages/vue-virtual-scroller) 是一个优秀的虚拟滚动库，可以帮助我们快捷地实现虚拟滚动。
 
 使用示例：
 
@@ -806,7 +806,7 @@ module.exports = {
 
 针对于第二种方案，不是所有依赖都一股脑的使用 CDN 资源，我的思路是只托管那些必须全量引入的依赖，比如`Vue`、`Vue Router`、`Vuex`、`Axios`、`NProgress`、`JQuery`等。像`Element`、`Ant Design Vue`这些 UI 框架，我一般不使用 CDN，因为它们本身可以按需引入，并且如果使用 CDN，动态改变主题颜色的操作就会变得更加复杂。
 
-其次还要考虑开发时体验，在开发时如果直接使用 CDN 资源，没有代码提示，效率上会有影响。我们可以借助 Vue CLI 内置的[html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin#options)插件，只在生产环境使用 CDN 资源：
+其次还要考虑开发时体验，在开发时如果直接使用 CDN 资源，没有代码提示，效率上会有影响。我们可以借助 Vue CLI 内置的[html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin#options) 插件，只在生产环境使用 CDN 资源：
 
 ```js
 // vue.config.js
