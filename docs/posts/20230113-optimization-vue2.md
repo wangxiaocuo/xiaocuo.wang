@@ -56,15 +56,15 @@ Lighthouse 会自动测试网站性能，并给出可读性强的报告。
 
 ### 2.4 webpack 包内容分析
 
-集成 webpack 的项目，可以通过`webpack-bundle-size-analyzer`插件生成包分析视图，Vue CLI 默认配置中内置了该插件，可以通过在打包命令后追加 `--report`或`--report-json`两种参数来生成分析文件。
+集成 webpack 的项目，可以通过 `webpack-bundle-size-analyzer` 插件生成包分析视图，Vue CLI 默认配置中内置了该插件，可以通过在打包命令后追加 `--report`或`--report-json` 两种参数来生成分析文件。
 
-- `--report`：打包后在`dist`目录下生成 `report.html`文件
-- `--report-json`：打包后在`dist`目录下生成`report.json`文件
+- `--report`：打包后在 `dist` 目录下生成 `report.html` 文件
+- `--report-json`：打包后在 `dist` 目录下生成 `report.json` 文件
 -
 
-我们主要关注`report.html`文件，可以很直观地看到所有包的大小和占比。
+我们主要关注 `report.html` 文件，可以很直观地看到所有包的大小和占比。
 
-为了方便，我们可以自定义一个`npm script`。
+为了方便，我们可以自定义一个 `npm script`。
 
 ```json
 # package.json
@@ -75,7 +75,7 @@ Lighthouse 会自动测试网站性能，并给出可读性强的报告。
 }
 ```
 
-敲`npm run build:report`命令后，会进行打包操作，并在`dist`目录下生成`report.html`文件，`report.html`文件打开如下图所示：
+敲 `npm run build:report` 命令后，会进行打包操作，并在 `dist` 目录下生成 `report.html` 文件，`report.html` 文件打开如下图所示：
 
 ![img](./20230113-optimization-vue2.assets/1673525525066-3156fabe-b662-4a77-9f44-f83ff50deb74.gif)
 
@@ -190,7 +190,7 @@ Vue.component('my-component', {
 })
 ```
 
-- 单文件组件通过`functional`声明
+- 单文件组件通过 `functional` 声明
 
 ```html
 <template functional> </template>
@@ -198,11 +198,11 @@ Vue.component('my-component', {
 
 ### 3.4 Vue 内置指令的使用注意
 
-#### 3.4.1 `v-for`须为每一项设置唯一`key`属性
+#### 3.4.1 `v-for` 须为每一项设置唯一 `key` 属性
 
-在不指定唯一`key`时，当 Vue 更新使用`v-for`渲染的元素列表时，它默认使用“就地更新”的策略，即 Vue 不会按需更新改变了的项，而是刷新整个循环列表。
+在不指定唯一`key`时，当 Vue 更新使用 `v-for` 渲染的元素列表时，它默认使用“就地更新”的策略，即 Vue 不会按需更新改变了的项，而是刷新整个循环列表。
 
-当指定了唯一`key`后，相当于给了 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素。
+当指定了唯一 `key` 后，相当于给了 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素。
 
 ```html
 <div v-for="item in items" v-bind:key="item.id">
@@ -211,19 +211,19 @@ Vue.component('my-component', {
 ```
 
 ::: tip 注意
-不要使用`index`作为`key`使用，除非在不得已的情况下，比如：
+不要使用 `index` 作为 `key` 使用，除非在不得已的情况下，比如：
 
 - 要渲染的数据是字符串数组，其中从业务层面必然存在重复的数据
-- 要渲染的对象数组中，没有可以作为唯一`key`的一个或多个字段（多个字段是指：有时候我们需要用多个字段拼接作为唯一`key`）
+- 要渲染的对象数组中，没有可以作为唯一 `key` 的一个或多个字段（多个字段是指：有时候我们需要用多个字段拼接作为唯一 `key`）
   :::
 
-#### 3.4.2 `v-for`与`v-if`
+#### 3.4.2 `v-for` 与 `v-if`
 
-**永远不要把**`**v-if**`**和**`**v-for**`**同时用在同一个元素上。**
+**永远不要把 **`**v-if**`** 和 **`**v-for**`** 同时用在同一个元素上。**
 
-当它们处于同一节点时，`v-for`的优先级比`v-if`更高，这意味着`v-if`将分别重复运行于每个`v-for`循环中。
+当它们处于同一节点时，`v-for` 的优先级比 `v-if` 更高，这意味着 `v-if` 将分别重复运行于每个 `v-for` 循环中。
 
-如果是想要有条件地跳过循环的执行，那么可以将`v-if`置于外层 DOM 元素（或`<template>`）上。例如：
+如果是想要有条件地跳过循环的执行，那么可以将 `v-if` 置于外层 DOM 元素（或 `<template>`）上。例如：
 
 ```html
 <ul v-if="todos.length">
@@ -255,9 +255,9 @@ data: { sets: [[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]] }, methods: { even: function
 
 ### 3.5 Vue 内置 API 的使用注意
 
-#### 3.5.1 区分`computed`和`方法`的使用场景
+#### 3.5.1 区分 `computed` 和 `方法` 的使用场景
 
-`computed`和`方法`都可以做同样的事情：
+`computed` 和 `方法`都可以做同样的事情：
 
 ```html
 <div id="example">
@@ -297,7 +297,7 @@ const vm = new Vue({
 - 当需要用缓存时，使用计算属性，不希望有缓存，用方法来替代。
 - 有性能开销比较大的计算时，尽量使用计算属性。
 
-#### 3.5.2 区分`computed`和`watch`的使用场景
+#### 3.5.2 区分 `computed` 和 `watch` 的使用场景
 
 虽然计算属性和侦听属性在一定程度上可以做同样的事情，比如：
 
@@ -342,9 +342,9 @@ const vm = new Vue({
 
 ### 3.6 组件销毁时，需移除手动绑定的事件
 
-组件实例销毁后会调用`destroyed`钩子，该钩子被调用后，对应 Vue 实例的所有指令都被解绑，所有的事件监听器被移除，所有的子实例也都被销毁。
+组件实例销毁后会调用 `destroyed` 钩子，该钩子被调用后，对应 Vue 实例的所有指令都被解绑，所有的事件监听器被移除，所有的子实例也都被销毁。
 
-但是通过`addEventListener`手动绑定的事件，不会被销毁，需要在销毁前手动移除：
+但是通过 `addEventListener` 手动绑定的事件，不会被销毁，需要在销毁前手动移除：
 
 ```js
 mounted() {
@@ -356,10 +356,10 @@ beforeDestroy() {
 ```
 
 ::: tip 注意
-如果同一个事件监听器分别为“事件捕获（`capture`为`true`）”和“事件冒泡（`capture`为`false`）”注册了一次，这两个版本的监听器需要分别移除。移除捕获监听器不会影响非捕获版本的相同监听器，反之亦然。具体请参考[EventTarget.removeEventListener() - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/removeEventListener)。
+如果同一个事件监听器分别为“事件捕获（`capture` 为 `true`）”和“事件冒泡（`capture` 为 `false`）”注册了一次，这两个版本的监听器需要分别移除。移除捕获监听器不会影响非捕获版本的相同监听器，反之亦然。具体请参考[EventTarget.removeEventListener() - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/removeEventListener)。
 :::
 
-### 3.7 `Object.freeze()`优化静态数据
+### 3.7 `Object.freeze()` 优化静态数据
 
 如果组件中只是单纯需要展示初始值，不会有后续的变化，或者只会进行整体替换的操作，不需要响应细微的变化时，那么可以用`Object.freeze()`来做冻结数据，`Object.freeze()`会阻止修改现有的`property`，也意味着响应系统无法再追踪变化。例如：
 
@@ -441,7 +441,7 @@ export default {
 
 ### 3.9 图片懒加载
 
-对于图片展示较多的站点，懒加载是很有必要的性能优化方式。Vue2 可以使用`vue-lazyload`这个开源库对图片进行懒加载处理。
+对于图片展示较多的站点，懒加载是很有必要的性能优化方式。Vue2 可以使用 `vue-lazyload` 这个开源库对图片进行懒加载处理。
 
 使用示例：
 
@@ -479,7 +479,7 @@ Vue.use(VueLazyload, {
 
 ### 3.10 生产环境打包禁止生成 Source Map
 
-Source Map 文件可以使浏览器能够像调试源代码一样调试被混淆压缩后的`JavaScript`代码，所以在非生产环境，Source Map 文件对于调试是有利的。
+Source Map 文件可以使浏览器能够像调试源代码一样调试被混淆压缩后的 `JavaScript` 代码，所以在非生产环境，Source Map 文件对于调试是有利的。
 
 但是 Source Map 文件有一定的安全隐患，有心人士可以通过 Source Map 文件中的映射，更容易地还原出前端完整代码。
 

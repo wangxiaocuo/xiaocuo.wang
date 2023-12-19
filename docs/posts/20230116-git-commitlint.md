@@ -9,7 +9,7 @@ tags:
 
 # 前端怎样约束 Git 提交信息？
 
-优雅的 Git 提交信息，可以很直观表达仓库的变更，方便团队协作、问题追溯。并且可以很方便地根据`git log`产出`CHANGELOG`。
+优雅的 Git 提交信息，可以很直观表达仓库的变更，方便团队协作、问题追溯。并且可以很方便地根据 `git log` 产出 `CHANGELOG`。
 
 怎么样才能算是**优雅**的 Git 提交信息呢？可以参考：[《约定式提交规范（Conventional Commits）》](https://www.conventionalcommits.org/zh-hans/v1.0.0/)。
 
@@ -25,13 +25,13 @@ tags:
 
 ### 1.1 Husky
 
-Git 本身就有[钩子（hooks）](https://git-scm.com/book/zh/v2/自定义-Git-Git-钩子)的功能，能在特定的重要动作发生时触发自定义脚本。钩子被存储在 Git 目录下的`hooks`子目录中，即项目根目录的`.git/hooks`中。
+Git 本身就有[钩子（hooks）](https://git-scm.com/book/zh/v2/自定义-Git-Git-钩子)的功能，能在特定的重要动作发生时触发自定义脚本。钩子被存储在 Git 目录下的 `hooks` 子目录中，即项目根目录的 `.git/hooks` 中。
 
-但是 Git 的钩子，配置比较繁琐，并且我们需要用到的比如`pre-commit`钩子，属于**客户端钩子**，并不会同步到其他协作人员的`.git`目录中。
+但是 Git 的钩子，配置比较繁琐，并且我们需要用到的比如 `pre-commit` 钩子，属于**客户端钩子**，并不会同步到其他协作人员的 `.git` 目录中。
 
 而[Husky](https://github.com/typicode/husky)的出现，可以让我们很方便地配置 Git 钩子，解决了 Git 原生钩子配置繁琐、协作人员之间不能同步的问题。
 
-以下关于 Husky 的讲解，都是`5.0`及以后的版本。`5.0`及以后的版本，初始化后，会在项目根目录下生成`.husky`目录，可以在其中添加自定义钩子配置文件。
+以下关于 Husky 的讲解，都是 `5.0` 及以后的版本。`5.0` 及以后的版本，初始化后，会在项目根目录下生成 `.husky` 目录，可以在其中添加自定义钩子配置文件。
 
 #### 1.1.1 安装
 
@@ -39,9 +39,9 @@ Git 本身就有[钩子（hooks）](https://git-scm.com/book/zh/v2/自定义-Git
 npm install husky -D
 ```
 
-#### 1.1.2 设置 NPM 的`prepare`脚本
+#### 1.1.2 设置 NPM 的 `prepare` 脚本
 
-拓展知识：`prepare`脚本属于生命周期脚本，如果你配置了该脚本，那么在你每次`npm install`的时候，`prepare`脚本都会自动执行，当然也可以手动调用：`npm run prepare`。你可以查阅[官方文档](https://docs.npmjs.com/cli/v8/using-npm/scripts#life-cycle-scripts)，了解其他的生命周期脚本。
+拓展知识：`prepare` 脚本属于生命周期脚本，如果你配置了该脚本，那么在你每次 `npm install` 的时候，`prepare` 脚本都会自动执行，当然也可以手动调用：`npm run prepare`。你可以查阅[官方文档](https://docs.npmjs.com/cli/v8/using-npm/scripts#life-cycle-scripts)，了解其他的生命周期脚本。
 
 ```json
 // package.json
@@ -57,9 +57,9 @@ npm install husky -D
 npm run prepare
 ```
 
-每次运行`npm run prepare`，都会在`.husky/_`下生成`husky.sh`和`.gitignore`两个文件，如果原本有的话，会被覆盖。
+每次运行 `npm run prepare`，都会在 `.husky/_` 下生成 `husky.sh` 和 `.gitignore` 两个文件，如果原本有的话，会被覆盖。
 
-在`.husky`下的自定义钩子文件，都需要引入`.husky/_/husky.sh`脚本，由于`.husky/_`下的两个文件没有被 Git 管理，有时候切换分支时，`.husky/_`下的文件会丢失，导致`git commit`时报错，这时只需重新执行下`npm run prepare`命令。
+在 `.husky` 下的自定义钩子文件，都需要引入 `.husky/_/husky.sh` 脚本，由于 `.husky/_` 下的两个文件没有被 Git 管理，有时候切换分支时，`.husky/_` 下的文件会丢失，导致 `git commit` 时报错，这时只需重新执行下 `npm run prepare` 命令。
 
 #### 1.1.3 添加钩子
 
@@ -80,8 +80,8 @@ npx husky add .husky/commit-msg ""
 npm install @commitlint/cli @commitlint/config-conventional -D
 ```
 
-- `@commitlint/cli`是 Commitlint 命令行工具本体
-- `@commitlint/config-conventional`是基于「约定式提交规范」的配置文件
+- `@commitlint/cli` 是 Commitlint 命令行工具本体
+- `@commitlint/config-conventional` 是基于「约定式提交规范」的配置文件
 
 #### 1.2.2 配置使用「约定式提交规范」
 
@@ -89,15 +89,15 @@ npm install @commitlint/cli @commitlint/config-conventional -D
 echo "module.exports = {extends: ['@commitlint/config-conventional']}" > .commitlintrc.js
 ```
 
-#### 1.2.3 配置 Husky 的`commit-msg`钩子
+#### 1.2.3 配置 Husky 的 `commit-msg` 钩子
 
-- 可以通过脚本写入到`.husky/commit-msg`
+- 可以通过脚本写入到 `.husky/commit-msg`
 
 ```shell
 npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'
 ```
 
-- 也可以直接在`.husky/commit-msg`中添加
+- 也可以直接在 `.husky/commit-msg` 中添加
 
 ```shell
 #!/bin/sh
@@ -120,17 +120,17 @@ git commit -m "chore: 使用 Husky + Commitlint 规范 Git 提交信息"
 
 ### 1.3 lint-staged
 
-[lint-staged](https://github.com/okonet/lint-staged)可以配合 Husky 的`pre-commit`钩子，在 Git 提交之前，对暂存的文件运行 linters 校验。
+[lint-staged](https://github.com/okonet/lint-staged)可以配合 Husky 的 `pre-commit` 钩子，在 Git 提交之前，对暂存的文件运行 linters 校验。
 
 #### 1.3.1 安装
 
-官方推荐的方式是运行`npx mrm@2 lint-staged`，默认会把配置写入到`package.json`，不过我不喜欢这种方式，我一般手动安装：
+官方推荐的方式是运行 `npx mrm@2 lint-staged`，默认会把配置写入到 `package.json`，不过我不喜欢这种方式，我一般手动安装：
 
 ```shell
 npm i lint-staged -D
 ```
 
-#### 1.3.2 配置 Husky 的`pre-commit`钩子
+#### 1.3.2 配置 Husky 的 `pre-commit` 钩子
 
 ```shell
 #!/bin/sh
@@ -143,7 +143,7 @@ npx lint-staged
 
 lint-staged 默认会对所有暂存的文件进行 lint。我们可以通过配置文件缩小文件范围，以及配置 lint 的方式。
 
-在根目录下创建`.lintstagedrc`配置文件，文件范围根据具体项目修改：
+在根目录下创建 `.lintstagedrc` 配置文件，文件范围根据具体项目修改：
 
 ```json
 {
@@ -154,7 +154,7 @@ lint-staged 默认会对所有暂存的文件进行 lint。我们可以通过配
 }
 ```
 
-更多`.lintstagedrc`地配置可以参考[官方文档](https://github.com/okonet/lint-staged#readme)。
+更多 `.lintstagedrc` 地配置可以参考[官方文档](https://github.com/okonet/lint-staged#readme)。
 
 ## 02. 约定式提交规范
 
@@ -190,7 +190,7 @@ lint-staged 默认会对所有暂存的文件进行 lint。我们可以通过配
 - `style`：不影响代码含义的更改（空白、格式、缺少分号等）
 - `test`：添加缺失的测试代码或修改现有的测试代码
 
-1. 范围在 Commitlint 的拓展下，可以支持多个，用`/`、`\`或`,`分割。
+1. 范围在 Commitlint 的拓展下，可以支持多个，用 `/`、`\` 或 `,` 分割。
 2. 正文可以多行，每行正文都是一段描述性的句子，每行正文前后都需要有空行。
 3. 脚注可以多行，脚注和脚注之前不需要空行。脚注语法：
 
@@ -213,13 +213,13 @@ docs: 更新 README.md
 feat(userManage): 开发用户管理模块
 ```
 
-- 包含了`!`字符以提醒注意破坏性变更的提交说明
+- 包含了 `!` 字符以提醒注意破坏性变更的提交说明
 
 ```
 feat!: 产品发货时向客户发送邮件
 ```
 
-- 包含了范围和破坏性变更`!`的提交說明
+- 包含了范围和破坏性变更 `!` 的提交說明
 
 ```
 feat(api)!: 产品发货时向客户发送邮件
@@ -233,7 +233,7 @@ feat: 允许默认的配置对象扩展其他配置
 BREAKING CHANGE: 配置文件中的 `extends` 现在用于扩展其他配置文件
 ```
 
-- 包含了`!`和`BREAKING CHANGE`脚注的提交说明
+- 包含了 `!` 和 `BREAKING CHANGE` 脚注的提交说明
 
 ```
 chore!: 放弃对 Node 6 的支持
@@ -260,7 +260,7 @@ Refs: #demo
 
 #### 2.3.1 初始化
 
-如果你使用的是**npm 5.2+，**可以直接使用`npx`，不需要全局安装 Commitizen。如果你使用的是**npm 5.2**以下的版本，请自行查阅[官方文档](https://github.com/commitizen/cz-cli#making-your-repo-commitizen-friendly)。
+如果你使用的是**npm 5.2+，**可以直接使用 `npx`，不需要全局安装 Commitizen。如果你使用的是**npm 5.2**以下的版本，请自行查阅[官方文档](https://github.com/commitizen/cz-cli#making-your-repo-commitizen-friendly)。
 
 运行以下命令进行初始化：
 
@@ -270,7 +270,7 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 
 #### 2.3.2 配置
 
-上一步的初始化操作，会帮我们安装`cz-conventional-changelog`，并且在`package.json`中写入`config`配置：
+上一步的初始化操作，会帮我们安装 `cz-conventional-changelog`，并且在 `package.json` 中写入 `config` 配置：
 
 ```json
 "config": {
@@ -280,9 +280,9 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 }
 ```
 
-但是我不喜欢把配置信息放在`package.json`中，显得杂乱，我选择把配置剥离。
+但是我不喜欢把配置信息放在 `package.json` 中，显得杂乱，我选择把配置剥离。
 
-在根目录下创建`.czrc`文件，在其中写入同样的配置，并把`package.json`中的`config`删除。
+在根目录下创建 `.czrc` 文件，在其中写入同样的配置，并把 `package.json` 中的 `config` 删除。
 
 ```json
 {
@@ -290,7 +290,7 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 }
 ```
 
-最后可以选择在`package.json`配置一个脚本命令，避免每次都要敲`npx cz`这样不太熟悉的命令：
+最后可以选择在 `package.json` 配置一个脚本命令，避免每次都要敲 `npx cz` 这样不太熟悉的命令：
 
 ```json
 "scripts": {
@@ -317,11 +317,11 @@ npm run commit
 
 #### 2.3.4 `npx: command not found`
 
-Husky 和 Commitlint 安装配好后，在 VSCode 左侧源代码管理工具里`git commit`时，可能会报错：`.husky/commit-msg: line 4: npx: command not found`。
+Husky 和 Commitlint 安装配好后，在 VSCode 左侧源代码管理工具里 `git commit` 时，可能会报错：`.husky/commit-msg: line 4: npx: command not found`。
 
 网上该问题的帖子解决方案大多是在钩子配置文件中写死本地 npm 的环境变量，我觉得不可取，除非是私人项目。
 
-以我的经验，等配置完，重启下 VSCode，基本就能识别到`npx`命令了。
+以我的经验，等配置完，重启下 VSCode，基本就能识别到 `npx` 命令了。
 
 ---
 

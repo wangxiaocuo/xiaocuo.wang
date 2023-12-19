@@ -167,13 +167,12 @@ console.log(str) // '😂😴🥰'
 
 有的小伙伴可能会表示，这玩意儿在手机上怎么打我知道，在电脑端怎么打出来？
 
-你可以在[这里](https://emojipedia.org/search/)找到最新的 eomji 表情，直接复制粘贴。
+- 你可以在[这里](https://emojipedia.org/search/)找到最新的 eomji 表情，直接复制粘贴。
 
-Windows 10、11 可以通过`win + .`快捷键，调起表情输入面板（就是有丶丑，微软在审美这方面有时候真的一言难尽）：
-
+- Windows 10、11 可以通过 `win + .` 快捷键，调起表情输入面板（就是有丶丑，微软在审美这方面有时候真的一言难尽）：
 ![img](./20230626-front-end-emoji.assets/1687331544388-a48ea188-93e8-4ac2-b305-4e91293d5508.png)
 
-Mac 可以通过 `control + command + 空格` 快捷键，调起表情输入面板：
+- Mac 可以通过 `control + command + 空格` 快捷键，调起表情输入面板：
 
 <div align="center">
   <img src="./20230626-front-end-emoji.assets/1687331239578-2a2e5929-2ead-433e-80fa-8a1ae30a3099.png" alt="img">
@@ -181,7 +180,7 @@ Mac 可以通过 `control + command + 空格` 快捷键，调起表情输入面�
 
 ### 3.2 HTML 中通过「HTML 实体」使用 emoji
 
-单说[HTML 实体（HTML Entities）](https://developer.mozilla.org/zh-CN/docs/Glossary/Entity)，可能小伙伴们会比较陌生，但是在初学 HTML 的时候，你一定学过怎么在 HTML 中输入符号`<`，对没错，可以这么输入：`<span>&lt;</span>`。其中 `&lt;` 就是一个「HTML 实体」，也可以称作「HTML 字符实体」。
+单说[HTML 实体（HTML Entities）](https://developer.mozilla.org/zh-CN/docs/Glossary/Entity)，可能小伙伴们会比较陌生，但是在初学 HTML 的时候，你一定学过怎么在 HTML 中输入符号 `<`，对没错，可以这么输入：`<span>&lt;</span>`。其中 `&lt;` 就是一个「HTML 实体」，也可以称作「HTML 字符实体」。
 
 HTML 实体常常用于显示保留字符（这些字符会被解析为 HTML 代码）和不可见的字符（如“不换行空格”），也可以用实体来代替其他难以用标准键盘键入的字符。
 
@@ -272,7 +271,7 @@ console.log(codePointToUTF16(0x01f602)) // '\uD83D\uDE02'
 console.log('\u{1F602}') // '😂'
 ```
 
-码位转义字符串可以通过`codePointAt`方法转换为代理对的形式：
+码位转义字符串可以通过 `codePointAt` 方法转换为代理对的形式：
 
 ```js
 const cp1 = '\u{01F602}'[0].codePointAt(0).toString(16).toUpperCase() // D83D
