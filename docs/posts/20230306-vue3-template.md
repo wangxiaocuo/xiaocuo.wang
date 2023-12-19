@@ -10,7 +10,7 @@ tags:
 
 # 从头搭一个 Vite+Vue3+ts 的基础模板
 
-[Vue3](https://cn.vuejs.org)自 2020 年 09 月 18 日发布至今已经两年多了，相关生态日渐丰满，且随我一起从头搭建一个基础模板，一起踩踩坑。
+[Vue3](https://cn.vuejs.org) 自 2020 年 09 月 18 日发布至今已经两年多了，相关生态日渐丰满，且随我一起从头搭建一个基础模板，一起踩踩坑。
 
 ---
 
@@ -18,6 +18,8 @@ tags:
 
 - [GitHub - sxzz/element-plus-best-practices: Element Plus Best Practices 最佳实践](https://github.com/sxzz/element-plus-best-practices)
 - [GitHub - vbenjs/vue-vben-admin: A modern vue admin. It is based on Vue3, vite and TypeScript. It’s fast！](https://github.com/vbenjs/vue-vben-admin)
+
+本篇文章基于 vite `v4.0.0`，请注意你此时的版本。
 
 ## 01. 新建项目
 
@@ -500,7 +502,7 @@ export function loadComponents() {
 - `ElementPlusResolver({ exclude: /ElIcon/ })`，我的项目中使用的是 ElementPlus 作为 UI 框架，这个配置会忽略`ElIcon`组件的自动引入。如果没有这个配置，`ElIcon`组件存在引入顺序问题，导致样式的错乱。详情请参考：https://github.com/element-plus/element-plus/issues/11761。在忽略`ElIcon`后，如果页面中其他 ElementPlus 组件中含有`ElIcon`组件，可以不手动引入，如果没有这样的组件，则需要手动引入`ElIcon`。
   :::
 
-- `vite-plugin-compression`使用 gzip 或者 brotli 来压缩资源
+- `vite-plugin-compression` 使用 gzip 或者 brotli 来压缩资源
 
 ```ts
 import Compression from 'vite-plugin-compression'
@@ -520,7 +522,7 @@ export function loadCompression() {
 }
 ```
 
-- `vite-plugin-html`HTML 压缩能力、EJS 模版能力等
+- `vite-plugin-html` HTML 压缩能力、EJS 模版能力等
 
 ```ts
 // https://cn.vitejs.dev/guide/env-and-mode.html#intellisense
@@ -550,7 +552,7 @@ export function loadHtml(isBuild: boolean, viteEnv: ImportMetaEnv) {
 }
 ```
 
-- `unplugin-icons`自动载入图标库
+- `unplugin-icons` 自动载入图标库
 
 ```ts
 import Icons from 'unplugin-icons/vite'
@@ -568,7 +570,7 @@ export function loadIcons() {
 }
 ```
 
-- `vite-plugin-windicss`Windi CSS 插件
+- `vite-plugin-windicss` Windi CSS 插件
 
 ```ts
 import WindiCSS from 'vite-plugin-windicss'
