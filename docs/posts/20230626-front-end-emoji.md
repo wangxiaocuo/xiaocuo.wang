@@ -39,7 +39,7 @@ Emoji 在推出之初，爆发性地获得了日本十多岁年轻人的追捧�
 
 ![img](./20230626-front-end-emoji.assets/1687836152428-8f542486-83bc-4e30-99cb-ed98bf09e028.jpeg)
 
-2015 年，Unicode 8.0 中加入了 5 个修饰符，用来调节人形表情的肤色，即`-1-2`、`-3`、`-4`、`-5`和`-6`（U+1F3FB ~ U+1F3FF）。
+2015 年，Unicode 8.0 中加入了 5 个修饰符，用来调节人形表情的肤色，即 `-1-2`、`-3`、`-4`、`-5`和`-6`（U+1F3FB ~ U+1F3FF）。
 
 这些修饰符学名叫：emoji 菲茨帕特里克修饰符（EMOJI MODIFIER FITZPATRICK），对应了[菲茨帕特里克度量](https://zh.wikipedia.org/wiki/菲茨帕特里克度量)对人类肤色的分类。没有后缀肤色代码的 emoji 会显示非真实的通用肤色例如亮黄色、蓝色或灰色。非人形表情则不受修饰符影响。在 Unicode9.0 中菲茨帕特里克修饰符可以和 86 个人形 emoji 一起使用。
 
@@ -76,7 +76,7 @@ PS：我一直当做“哭笑不得”用的……
 ::: details 码位 Code point
 [码位 Code point](https://developer.mozilla.org/zh-CN/docs/Glossary/Code_point)是字符集（例如 Unicode）中用于表示抽象字符的数值。通俗点讲，不同的字符集，有自己的一张“字典表”，码位就是表示某个字符在这张“字典表”中的“坐标”，在 JavaScript 中一般会用十六进制去表示。
 
-比如 Unicode，包括 1,114,112 个码位，范围是 0 到 10FFFF（十六进制）。字符“A”由代码点`U+0041`（十六进制）表示，也可以用 65（十进制）表示。
+比如 Unicode，包括 1,114,112 个码位，范围是 0 到 10FFFF（十六进制）。字符“A”由代码点 `U+0041`（十六进制）表示，也可以用 65（十进制）表示。
 
 ```js
 console.log('\u0041') // 'A'
@@ -110,7 +110,7 @@ console.log(face.length) // 2
 :::
 
 ::: details JavaScript 中的 codePointAt 和 fromCodePoint
-JavaScript 中的`codePointAt`和`fromCodePoint`是 ES6/ES2015 中引入的新方法，可以处理 UTF-16 编码系统下大于 16 位的 Unicode 字符，其中包括 emoji。它们是为了替代 ES5 中的`charCodeAt`方法，`charCodeAt`不能正确地处理 emoji 表情。
+JavaScript 中的 `codePointAt` 和 `fromCodePoint` 是 ES6/ES2015 中引入的新方法，可以处理 UTF-16 编码系统下大于 16 位的 Unicode 字符，其中包括 emoji。它们是为了替代 ES5 中的 `charCodeAt` 方法，`charCodeAt` 不能正确地处理 emoji 表情。
 
 ```js
 console.log('😂'.codePointAt(0)) // 128514，正确
@@ -122,7 +122,7 @@ console.log('😂'.charCodeAt(0)) // 55357，错误
 
 ::: details Javascript 中的十六进制
 
-1. 所有十六进制码位必须为 4 个字符，如果少于 4 个字符，须用`0`填充
+1. 所有十六进制码位必须为 4 个字符，如果少于 4 个字符，须用 `0` 填充
 
 ```js
 console.log('\u0041') // 合法，'A'
@@ -173,7 +173,7 @@ Windows 10、11 可以通过`win + .`快捷键，调起表情输入面板（就�
 
 ![img](./20230626-front-end-emoji.assets/1687331544388-a48ea188-93e8-4ac2-b305-4e91293d5508.png)
 
-Mac 可以通过`control + command + 空格`快捷键，调起表情输入面板：
+Mac 可以通过 `control + command + 空格` 快捷键，调起表情输入面板：
 
 <div align="center">
   <img src="./20230626-front-end-emoji.assets/1687331239578-2a2e5929-2ead-433e-80fa-8a1ae30a3099.png" alt="img">
@@ -181,17 +181,17 @@ Mac 可以通过`control + command + 空格`快捷键，调起表情输入面板
 
 ### 3.2 HTML 中通过「HTML 实体」使用 emoji
 
-单说[HTML 实体（HTML Entities）](https://developer.mozilla.org/zh-CN/docs/Glossary/Entity)，可能小伙伴们会比较陌生，但是在初学 HTML 的时候，你一定学过怎么在 HTML 中输入符号`<`，对没错，可以这么输入：`<span><</span>`。其中`<`就是一个「HTML 实体」，也可以称作「HTML 字符实体」。
+单说[HTML 实体（HTML Entities）](https://developer.mozilla.org/zh-CN/docs/Glossary/Entity)，可能小伙伴们会比较陌生，但是在初学 HTML 的时候，你一定学过怎么在 HTML 中输入符号`<`，对没错，可以这么输入：`<span>&lt;</span>`。其中 `&lt;` 就是一个「HTML 实体」，也可以称作「HTML 字符实体」。
 
 HTML 实体常常用于显示保留字符（这些字符会被解析为 HTML 代码）和不可见的字符（如“不换行空格”），也可以用实体来代替其他难以用标准键盘键入的字符。
 
-一个 HTML 实体，可以有两种转义格式：实体名称（entity name）、实体编号（entity numbers）。`<`使用的是实体名称，可以改写成实体编号的形式：`<`或`<`，编号可以是十进制也可以是十六进制。
+一个 HTML 实体，可以有两种转义格式：实体名称（entity name）、实体编号（entity numbers）。`&lt;` 使用的是实体名称，可以改写成实体编号的形式：`&#60;` 或 `&#x3C;`，编号可以是十进制也可以是十六进制。
 
 ::: tip 注意
 使用实体名称有一定的优点，即实体名称易于记忆。但是浏览器可能不支持所有实体名称，但对实体编号的支持很好，所以除了 ASCII 码的实体可以使用实体名称的形式以外，其他的字符都建议用实体编码的形式。
 :::
 
-通过上面的举例可以看出，实体名称和实体编号是通过`&`后面有没有`#`区分的。**而实体编号的编号部分其实就是字符的码位。**既然是码位，那用 HTML 实体能显示 emoji 就是很自然的事情。
+通过上面的举例可以看出，实体名称和实体编号是通过 `&` 后面有没有 `#` 区分的。**而实体编号的编号部分其实就是字符的码位。**既然是码位，那用 HTML 实体能显示 emoji 就是很自然的事情。
 
 ```html
 <!-- 在HTML中使用HTML实体显示emoji -->
@@ -209,7 +209,7 @@ HTML 实体形式是有它的使用场景的，比如多方联调时，数据需
 
 原因是 MySQL 的 ut8 编码是阉割版的，最多存储 3 个字节，而一个 emoji 表情是 4 个字节，所以插不进去。这种情况也很好解决，把字符集改成 utf8mb4 就行。但是如果第三方不肯改呢？是的你没听错，成年人的工作环境有时候就是这么恶劣 😭。
 
-这时候就是 HTML 实体出场的时候了，可以通过正则匹配出所有的 emoji，然后替换成 HTML 实体的形式。这个正则怎么写？太复杂了，俺也不会，不过好在互联网上能人无数，比如可以参考[Lodash](https://lodash.com/)的：
+这时候就是 HTML 实体出场的时候了，可以通过正则匹配出所有的 emoji，然后替换成 HTML 实体的形式。这个正则怎么写？太复杂了，俺也不会，不过好在互联网上能人无数，比如可以参考 [Lodash](https://lodash.com/) 的：
 
 ```
 (?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff])[\ufe0e\ufe0f]?(?:[\u0300-\u036f\ufe20-\ufe23\u20d0-\u20f0]|\ud83c[\udffb-\udfff])?(?:\u200d(?:[^\ud800-\udfff]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff])[\ufe0e\ufe0f]?(?:[\u0300-\u036f\ufe20-\ufe23\u20d0-\u20f0]|\ud83c[\udffb-\udfff])?)*
@@ -232,7 +232,7 @@ console.log(result) // '你好&#128075;&#128075;&#128075;，我是魔仙堡的�
 
 ### 3.3 JavaScript 中通过代理对或码位转义字符来输入 emoji
 
-ES5 中可以使用`\uXXXX`的格式使用 Unicode，可以通过代理对的形式来表示 emoji。比如`'😂'`可以用`'\ud83d\ude02'`表示。
+ES5 中可以使用 `\uXXXX` 的格式使用 Unicode，可以通过代理对的形式来表示 emoji。比如 `'😂'` 可以用 `'\ud83d\ude02'` 表示。
 
 怎样根据一个 emoji 来获得这样的代理对？可以通过把码位转换为 16 进制的方式：
 
@@ -282,7 +282,7 @@ console.log(`\\u${cp1}\\u${cp2}`) // '\uD83D\uDE02'
 
 ### 3.4 通过「零宽连字」符号连接多个 emoji 表情
 
-零宽连字 ZWJ（Zero-width joiner）的 Unicode 码位是`U+200D`，主要用于一些复杂排版语言（阿拉伯语、印地语）的两个字符之间，可以使这两个本不会发生连字的字符产生了连字效果。
+零宽连字 ZWJ（Zero-width joiner）的 Unicode 码位是 `U+200D`，主要用于一些复杂排版语言（阿拉伯语、印地语）的两个字符之间，可以使这两个本不会发生连字的字符产生了连字效果。
 
 它可以用在 emoji 表情之间，让 emoji 表情连在一起，比如：
 
@@ -355,7 +355,7 @@ console.log(demo3.join(zwj)) // '👨‍💻'
 
 ### 3.5 键帽 emoji
 
-除了通过「零宽连字」进行连接产出新的 emoji，还可以用`0-9*#`拼上键帽修饰符的代理对：`'\ufe0f\u20e3'`，会产出一组键帽 emoji：
+除了通过「零宽连字」进行连接产出新的 emoji，还可以用 `0-9*#` 拼上键帽修饰符的代理对：`'\ufe0f\u20e3'`，会产出一组键帽 emoji：
 
 ```js
 const res = [0, 1, 2, 3, 4, 5, 7, 8, 9, '*', '#'].map(
@@ -368,7 +368,7 @@ console.log(res) // ['0️⃣', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5�
 
 前面有讲到可以通过菲茨帕特里克修饰符调节人物肤色，那可以在代码中动态改变人物肤色吗？当然可以。
 
-菲茨帕特里克修饰符的五个肤色分类`-1-2`、`-3`、`-4`、`-5`和`-6`，分别对应了代理对：
+菲茨帕特里克修饰符的五个肤色分类 `-1-2`、`-3`、`-4`、`-5` 和 `-6`，分别对应了代理对：
 
 - `'\uD83C\uDFFB'`
 - `'\uD83C\uDFFC'`
@@ -397,9 +397,9 @@ console.log(blackMan.replace(fitzPattern, '') + fitz12) // 👨🏻
 
 ### 3.7 emoji 的长度问题
 
-JavaScript 中字符串的`length`只读属性，返回的是字符串中的码元的长度（以 UTF-16 编码表示）。
+JavaScript 中字符串的 `length` 只读属性，返回的是字符串中的码元的长度（以 UTF-16 编码表示）。
 
-如果直接用`length`去获取 emoji 的长度，会有什么问题？请看示例：
+如果直接用 `length` 去获取 emoji 的长度，会有什么问题？请看示例：
 
 ```js
 console.log('😂'.length) // 2
@@ -423,7 +423,7 @@ console.log([...'👴‍👵‍👨‍👩‍👦‍👧']) // ['👴', '‍', '
 console.log([...'😂'].length) // 1
 ```
 
-如果是 ES5 环境，可以通过第三方类库来实现，比如`punycode.js`：
+如果是 ES5 环境，可以通过第三方类库来实现，比如 `punycode.js`：
 
 ```js
 console.log(require('punycode').ucs2.decode('😂').length) // 1
@@ -453,7 +453,7 @@ const result = sentence.replace(emojiPattern, match => `a`)
 console.log(result.length) // 25
 ```
 
-长度本身不是唯一要注意的问题，由于长度识别不对会导致`slice`、反转字符串等操作都会是灾难级的：
+长度本身不是唯一要注意的问题，由于长度识别不对会导致 `slice`、反转字符串等操作都会是灾难级的：
 
 ```js
 const sentence1 = '你好👋😘'
@@ -481,7 +481,7 @@ console.log([...sentence2].slice(3).join('')) // '‍👩‍👧‍👧'
 console.log([...sentence2].reverse().join('')) // '👧‍👧‍👩‍👩好你'
 ```
 
-对于`slice`、反转字符串等操作，目前也没有特别好的解决方案，有一个思路是先把 emoji 替换成单个普通字符，处理完再把 emoji 填回去，但这种处理方式的繁琐点是最后要把 emoji 填回去，那替换的单个普通字符，在字符串中需要是唯一的，否则就很难办。如果小伙伴们有好的方法，欢迎交流。
+对于 `slice`、反转字符串等操作，目前也没有特别好的解决方案，有一个思路是先把 emoji 替换成单个普通字符，处理完再把 emoji 填回去，但这种处理方式的繁琐点是最后要把 emoji 填回去，那替换的单个普通字符，在字符串中需要是唯一的，否则就很难办。如果小伙伴们有好的方法，欢迎交流。
 
 ---
 
