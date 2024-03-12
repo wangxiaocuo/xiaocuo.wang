@@ -13,8 +13,6 @@ tags:
 
 <!-- more -->
 
-介绍 Unicode 控制字符之前，我们需要先来认识一下 ASCII 和 Unicode 这两大字符编码系统。
-
 ## 先认识两个字符编码系统
 
 ### 老前辈 ASCII
