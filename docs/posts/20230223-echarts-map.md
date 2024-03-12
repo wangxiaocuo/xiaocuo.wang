@@ -12,7 +12,7 @@ tags:
 
 本篇文章是科普向，非实战指南，详细的使用请对照官网配置项手册：[geo](https://echarts.apache.org/zh/option.html#geo)、[series-map](https://echarts.apache.org/zh/option.html#series-map)。
 
----
+<!-- more -->
 
 2018 年 3 月，百度将 ECharts 项目捐赠给 Apache 基金会，ECharts 成为了 Apache 基金会孵化级项目，同时也是首个由百度贡献给国际顶级基金会的开源项目。
 

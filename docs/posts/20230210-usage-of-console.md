@@ -10,7 +10,7 @@ tags:
 
 `Console` 对象提供了浏览器控制台调试的接口（如：Firefox 的 [Web Console](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html)）。在不同宿主环境上它的工作方式可能不一样，但通常都会提供一套共性的功能。
 
----
+<!-- more -->
 
 `Console` 对象所提供的 `console.*(...)` 这样的方法，其实是**宿主环境**（比如：浏览器、NodeJS 等）提供的用于控制台调试的，它并不是 JavaScript 正式语法的一部分。
 

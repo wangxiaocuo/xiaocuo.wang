@@ -11,7 +11,7 @@ tags:
 
 Emoji 相信大家耳熟能详，今天我们来聊聊 emoji 的发展历史，以及在前端开发中使用 emoji 的一些小技巧。
 
----
+<!-- more -->
 
 我国不同地区对于 emoji 的称呼稍有差别：
 
@@ -33,7 +33,7 @@ Emoji 在推出之初，爆发性地获得了日本十多岁年轻人的追捧�
 
 当初 NTT DoCoMo 公司并没有 emoji 的版权意识，导致其他竞争对手的争相借鉴，各自开发起自己的表情，引起了很长一段时间的大混战。
 
-直到 2009 年，emoji 被收录进[Unicode](https://zh.wikipedia.org/wiki/Unicode)，由 Unicode 联盟（Unicode Consortium）管理和维护，自此 emoji 成为了世界标准的通用字符，
+直到 2009 年，emoji 被收录进 [Unicode](https://zh.wikipedia.org/wiki/Unicode)，由 Unicode 联盟（Unicode Consortium）管理和维护，自此 emoji 成为了世界标准的通用字符，
 
 2011 年苹果在发布的 iOS 5 的输入法中加入了 emoji 的支持，2012 年市面上很多智能手机也加入了对 emoji 的支持。这急剧加速了 emoji 在全球的普及。
 
@@ -73,8 +73,8 @@ PS：我一直当做“哭笑不得”用的……
 它整理、编码了世界上大部分的文字系统，使得电脑能以通用划一的字符集来处理和显示文字，不但减轻在不同编码系统间切换和转换的困扰，更提供了一种跨平台的乱码问题解决方案。
 :::
 
-::: details 码位 Code point
-[码位 Code point](https://developer.mozilla.org/zh-CN/docs/Glossary/Code_point)是字符集（例如 Unicode）中用于表示抽象字符的数值。通俗点讲，不同的字符集，有自己的一张“字典表”，码位就是表示某个字符在这张“字典表”中的“坐标”，在 JavaScript 中一般会用十六进制去表示。
+::: details 码位/码点 Code point
+[码位 Code point](https://developer.mozilla.org/zh-CN/docs/Glossary/Code_point)是字符集（例如 Unicode）中用于表示抽象字符的数值。也可以翻译为**码点**。通俗点讲，不同的字符集，有自己的一张「字典表」，码位就是表示某个字符在这张“字典表”中的“坐标”，在 JavaScript 中一般会用十六进制去表示。
 
 比如 Unicode，包括 1,114,112 个码位，范围是 0 到 10FFFF（十六进制）。字符“A”由代码点 `U+0041`（十六进制）表示，也可以用 65（十进制）表示。
 

@@ -11,7 +11,7 @@ declare const data: Post[]
 export { data }
 
 export default createContentLoader('posts/*.md', {
-  excerpt: true,
+  excerpt: '<!-- more -->',
   transform(rawData) {
     return rawData
       .sort((a, b) => {

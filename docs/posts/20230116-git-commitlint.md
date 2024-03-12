@@ -13,7 +13,7 @@ tags:
 
 怎么样才能算是**优雅**的 Git 提交信息呢？可以参考：[《约定式提交规范（Conventional Commits）》](https://www.conventionalcommits.org/zh-hans/v1.0.0/)。
 
----
+<!-- more -->
 
 《约定式提交规范（Conventional Commits）》是一种基于提交信息的轻量级约定，它提供了一组简单规则来创建清晰的提交历史，更有利于编写自动化工具。
 
