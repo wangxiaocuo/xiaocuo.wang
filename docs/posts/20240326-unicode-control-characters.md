@@ -140,7 +140,7 @@ console.log('a​​b‍‍c'.length) // 7
 
    - 比如 Windows 的文本编辑：
      <img src="./20240326-unicode-control-characters.assets/7b1e940eea70d47b4c9d32dc99f8ff4c.png" style="width: 50%; margin: auto">
-   - 比如 VSCode，VSCode 默认会打开该设置，但是需要在**非纯文本文件（Plain Text）**中：
+   - 比如 VSCode，VSCode 默认会打开该设置，但是需要在 **非纯文本文件（Plain Text）** 中：
      ![](./20240326-unicode-control-characters.assets/83e96894701885d4b406032cf9ebfea0.png)
      ![](./20240326-unicode-control-characters.assets/d394cb7de0878b8586cb6cd7327bf3cd.png)
 
